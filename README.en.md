@@ -1,36 +1,27 @@
-# mall-vue
+<h1 align="center">🏪 mall-vue</h1>
 
-#### Description
-Vue 搭建的商城后台管理系统前端。
+### 📖 Language
 
-#### Software Architecture
-Software architecture description
+[简体中文](./README.md) | English
 
-#### Installation
+### Package Management Tool
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+* npm
 
-#### Instructions
+```
+npm install
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+npm run serve
 
-#### Contribution
+npm run build
+```
 
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
+* yarn
 
+```
+yarn install
 
-#### Gitee Feature
+yarn serve
 
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+yarn build
+```
