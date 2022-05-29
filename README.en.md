@@ -4,24 +4,34 @@
 
 [简体中文](./README.md) | English
 
-### Package Management Tool
+### ⌛ Start
 
-* npm
+* Choose a Node package manager
+
+#### Install dependencies
 
 ```
 npm install
 
+yarn install
+```
+
+#### Run serve
+
+```
 npm run serve
 
-npm run build
-```
-
-* yarn
-
-```
-yarn install
-
 yarn serve
+```
+
+#### Build deployment package
+
+```
+npm run build
 
 yarn build
 ```
+
+### 📜 Licence
+
+[MIT License](https://opensource.org/licenses/MIT) Copyright (c) 2022 周博义

@@ -4,24 +4,34 @@
 
 简体中文 | [English](./README.en.md)
 
-### 包管理工具
+### ⌛ 开始
 
-* npm
+* 选择一个 Node 包管理器
+
+#### 安装依赖
 
 ```
 npm install
 
+yarn install
+```
+
+#### 运行服务
+
+```
 npm run serve
 
-npm run build
-```
-
-* yarn
-
-```
-yarn install
-
 yarn serve
+```
+
+#### 构建部署包
+
+```
+npm run build
 
 yarn build
 ```
+
+### 📜 开源协议
+
+[MIT License](https://opensource.org/licenses/MIT) Copyright (c) 2022 周博义
