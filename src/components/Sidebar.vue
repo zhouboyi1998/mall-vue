@@ -19,7 +19,7 @@
         </el-menu-item>
       </el-sub-menu>
       <el-menu-item index="2">
-        <el-icon><icon-menu /></el-icon>
+        <el-icon><Avatar /></el-icon>
         <span class="menu-span">导航二</span>
       </el-menu-item>
       <el-menu-item index="3">
