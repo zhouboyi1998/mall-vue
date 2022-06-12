@@ -31,3 +31,7 @@ npm run build
 
 yarn build
 ```
+
+### 📜 Licence
+
+[MIT License](https://opensource.org/licenses/MIT) Copyright (c) 2022 周博义
