@@ -8,13 +8,13 @@
                 <el-icon class="svg-container" :size="20">
                     <User/>
                 </el-icon>
-                <el-input v-model="form.username"></el-input>
+                <el-input v-model="form.username"/>
             </el-form-item>
             <el-form-item prop="password">
                 <el-icon class="svg-container" :size="20">
                     <Lock/>
                 </el-icon>
-                <el-input v-model="form.password"></el-input>
+                <el-input v-model="form.password" type="password"/>
             </el-form-item>
             <el-button class="login-button" type="primary" @click="handleLogin">登录</el-button>
         </el-form>
@@ -23,7 +23,8 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { User, Lock} from '@element-plus/icons-vue'
+import { User, Lock } from '@element-plus/icons-vue'
+import axios from 'axios'
 
 const form = reactive({
     username: '',
@@ -52,9 +53,23 @@ const formRef = ref(null)
 const handleLogin = () => {
     formRef.value.validate((valid) => {
         if (valid) {
-            console.log('submit!')
+            axios.post(
+                'http://127.0.0.1:18071/api/security/oauth/token',
+                {
+                    grant_type: 'password',
+                    client_id: 'management',
+                    client_secret: '123456',
+                    username: form.username,
+                    password: form.password
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }
+            )
         } else {
-            console.log('error submit!')
+
         }
     })
 }
@@ -165,4 +180,3 @@ $cursor: #fff;
     }
 }
 </style>
-
