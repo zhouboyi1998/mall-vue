@@ -25,7 +25,7 @@
 import { reactive, ref } from 'vue'
 import { User, Lock } from '@element-plus/icons-vue'
 import axios from 'axios'
-import { login, test } from "@/api/login";
+import { login } from "@/api/login";
 
 const form = reactive({
     grant_type: 'password',
@@ -58,16 +58,15 @@ const handleLogin = () => {
     formRef.value.validate(async (valid) => {
         if (valid) {
             await login(form.value)
-            // await test()
+            console.log('submit!')
         } else {
-
+            console.log('error submit!')
         }
     })
 }
 </script>
 
 <style lang="scss" scoped>
-
 $bg: #2d3a4b;
 $dark_gray: #889aa4;
 $light_gray: #eee;

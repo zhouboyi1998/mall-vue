@@ -30,5 +30,16 @@ module.exports = {
                 }
             }
         }
+    },
+    // 全局导入以下 CSS 样式
+    css: {
+        loaderOptions: {
+            sass: {
+                additionalData: `
+                    @import "@/styles/variables.scss";
+                    @import "@/styles/mixin.scss";
+                `
+            }
+        }
     }
 }
