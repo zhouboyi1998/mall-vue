@@ -25,8 +25,12 @@
 import { reactive, ref } from 'vue'
 import { User, Lock } from '@element-plus/icons-vue'
 import axios from 'axios'
+import { login, test } from "@/api/login";
 
 const form = reactive({
+    grant_type: 'password',
+    client_id: 'management',
+    client_secret: '123456',
     username: '',
     password: ''
 })
@@ -51,23 +55,10 @@ const rules = reactive({
 const formRef = ref(null)
 // 登录按钮
 const handleLogin = () => {
-    formRef.value.validate((valid) => {
+    formRef.value.validate(async (valid) => {
         if (valid) {
-            axios.post(
-                'http://127.0.0.1:18071/api/security/oauth/token',
-                {
-                    grant_type: 'password',
-                    client_id: 'management',
-                    client_secret: '123456',
-                    username: form.username,
-                    password: form.password
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                }
-            )
+            await login(form.value)
+            // await test()
         } else {
 
         }
