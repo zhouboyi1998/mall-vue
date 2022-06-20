@@ -1,8 +1,8 @@
-@import 'src/assets/scss/variablesvariables';
-@import 'src/assets/scss/mixincss/mixin';
-@import 'src/assets/scss/sidebars/sidebar';
-@import 'src/assets/scss/elements/element';
-@import 'src/assets/scss/transitionransition';
+@import './variables.scss';
+@import './mixin.scss';
+@import './sidebar.scss';
+@import './element.scss';
+@import './transition.scss';
 
 html,
 body {
