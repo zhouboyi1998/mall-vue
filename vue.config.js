@@ -36,8 +36,8 @@ module.exports = {
         loaderOptions: {
             sass: {
                 additionalData: `
-                    @import "@/styles/variables.scss";
-                    @import "@/styles/mixin.scss";
+                    @import "@/assets/scss/variables.scss";
+                    @import "@/assets/scss/mixin.scss";
                 `
             }
         }
