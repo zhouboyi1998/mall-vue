@@ -29,7 +29,7 @@ import { login } from "@/api/login";
 
 const form = reactive({
     grant_type: 'password',
-    client_id: 'management',
+    client_id: 'manage',
     client_secret: '123456',
     username: '',
     password: ''
