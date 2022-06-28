@@ -23,14 +23,12 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
+import router from '@/router'
+import { login } from '@/api/login'
 import { User, Lock } from '@element-plus/icons-vue'
-import axios from 'axios'
-import { login } from "@/api/login";
+import { ElMessage } from 'element-plus'
 
 const form = reactive({
-    grant_type: 'password',
-    client_id: 'manage',
-    client_secret: '123456',
     username: '',
     password: ''
 })
@@ -53,14 +51,31 @@ const rules = reactive({
 })
 
 const formRef = ref(null)
+
 // 登录按钮
 const handleLogin = () => {
+    // 添加请求参数
+    const params = new URLSearchParams()
+    params.append('username', form.username)
+    params.append('password', form.password)
+
+    // 异步发送登录请求
     formRef.value.validate(async (valid) => {
         if (valid) {
-            await login(form.value)
-            console.log('submit!')
+            await login(params)
+                .then(res => {
+                    // 将用户 token 保存到 session 中
+                    localStorage.setItem('token', res.data.tokenPrefix + res.data.token)
+                    ElMessage({ message: 'Login successful!', type: 'success' })
+                    // 跳转到首页
+                    router.replace('/')
+                })
+                .catch(error => {
+                    ElMessage.error('Login failed!')
+                    console.log(error)
+                })
         } else {
-            console.log('error submit!')
+            ElMessage.error('Login submit failed!')
         }
     })
 }
