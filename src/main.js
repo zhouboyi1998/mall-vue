@@ -4,5 +4,6 @@ import router from './router'
 import store from './store'
 import 'element-plus/dist/index.css'
 import '@/assets/scss/index.scss'
+import '@/router/guard'
 
 createApp(App).use(store).use(router).mount('#app')
