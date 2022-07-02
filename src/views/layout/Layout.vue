@@ -1,13 +1,15 @@
 <template>
     <el-container class="app-wrapper">
-        <el-aside width="220px" class="sidebar-container">
+        <el-aside width="200px" class="sidebar-container">
             <Menu/>
         </el-aside>
         <el-container class="container">
             <el-header>
                 <Header/>
             </el-header>
-            <el-main>Main</el-main>
+            <el-main>
+                <router-view />
+            </el-main>
         </el-container>
     </el-container>
 </template>
@@ -26,7 +28,7 @@ import Header from './header/Header'
 }
 
 .container {
-    width: calc(100% - 220px);
+    width: calc(100% - 200px);
     height: 100%;
     position: fixed;
     top: 0;
