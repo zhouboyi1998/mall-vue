@@ -31,7 +31,7 @@ module.exports = {
             }
         }
     },
-    // 全局导入以下 CSS 样式
+    // 全局导入以下 CSS 样式 (为每一个 Vue 文件导入)
     css: {
         loaderOptions: {
             sass: {

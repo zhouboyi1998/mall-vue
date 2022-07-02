@@ -1,32 +1,61 @@
 <template>
     <el-breadcrumb separator="/">
-        <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
+        <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">
+            <!-- 面包屑中最后一个置灰, 不能点击 -->
+            <span class="no-redirect" v-if="index === breadcrumbList.length - 1">
+                {{ item.name }}
+            </span>
+            <!-- 其它面包屑可以点击, 并且点击后跳转 -->
+            <span class="redirect" v-else @click="handleRedirect(item.path)">
+                {{ item.name }}
+            </span>
+        </el-breadcrumb-item>
     </el-breadcrumb>
 </template>
 
 <script setup>
-import { reactive, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
-const breadcrumbList = reactive([])
+const router = useRouter()
+
+// 面包屑列表
+const breadcrumbList = ref([])
+
+// 初始化面包屑列表
 const initBreadcrumbList = () => {
+    // 面包屑列表为当前路由表
     breadcrumbList.value = route.matched
     console.log(route.matched)
 }
 
-watch(
-    route,
-    () => {
-        initBreadcrumbList()
-    },
-    {
-        deep: true,
-        immediate: true
-    }
-)
+// 点击面包屑时, 切换路径
+const handleRedirect = (path) => {
+    router.push(path)
+}
+
+// 每当打开新的路由时, 执行初始化面包屑列表的操作
+watch(route, () => {
+    initBreadcrumbList()
+}, {
+    deep: true,
+    immediate: true
+})
 </script>
 
 <style lang="scss" scoped>
+.no-redirect {
+    color: #97A8BE;
+    cursor: text;
+}
 
+.redirect {
+    color: #ffd04b;
+    cursor: pointer;
+
+    &:hover {
+        color: $menuBg;
+    }
+}
 </style>
