@@ -37,14 +37,14 @@ const rules = reactive({
     username: [
         {
             required: true,
-            message: 'Please input username',
+            message: '请输入账号',
             trigger: 'blur'
         }
     ],
     password: [
         {
             required: true,
-            message: 'Please input password',
+            message: '请输入密码',
             trigger: 'blur'
         }
     ]
@@ -66,16 +66,16 @@ const handleLogin = () => {
                 .then(res => {
                     // 将用户 token 保存到 session 中
                     localStorage.setItem('token', res.data.tokenPrefix + res.data.token)
-                    ElMessage({ message: 'Login successful!', type: 'success' })
+                    ElMessage({ message: '登录成功', type: 'success' })
                     // 跳转到首页
                     router.replace('/')
                 })
                 .catch(error => {
-                    ElMessage.error('Login failed!')
+                    ElMessage.error('登录失败')
                     console.log(error)
                 })
         } else {
-            ElMessage.error('Login submit failed!')
+            ElMessage.error('请输入账号和密码')
         }
     })
 }
