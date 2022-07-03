@@ -5,7 +5,7 @@
                 <!-- 搜索框 -->
                 <el-input
                     clearable
-                    v-model="params.brand.brandName"
+                    v-model="params.records[0].brandName"
                     placeholder="请输入品牌名称"
                 />
             </el-col>
@@ -38,11 +38,13 @@ import { column } from './column'
 
 // 请求参数
 const params = ref({
-    page: 1,
+    current: 1,
     size: 10,
-    brand: {
-        brandName: ''
-    }
+    records: [
+        {
+            brandName: ''
+        }
+    ]
 })
 
 // 表格数据
