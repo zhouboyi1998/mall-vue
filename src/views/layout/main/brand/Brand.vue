@@ -33,7 +33,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Search } from '@element-plus/icons-vue'
-import { selectBrandPage } from '@/api/brand'
+import { selectBrandPage } from '@/api/goods/brand'
 import { column } from './column'
 
 // 请求参数
