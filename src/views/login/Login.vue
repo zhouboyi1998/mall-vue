@@ -72,7 +72,6 @@ const handleLogin = () => {
                 })
                 .catch(error => {
                     ElMessage.error('登录失败')
-                    console.log(error)
                 })
         } else {
             ElMessage.error('请输入账号和密码')

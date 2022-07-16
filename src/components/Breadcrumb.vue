@@ -27,7 +27,6 @@ const breadcrumbList = ref([])
 const initBreadcrumbList = () => {
     // 面包屑列表为当前路由表
     breadcrumbList.value = route.matched
-    console.log(route.matched)
 }
 
 // 点击面包屑时, 切换路径
