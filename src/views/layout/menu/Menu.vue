@@ -10,77 +10,32 @@
     >
         <el-menu-item index="/home" @click="savePath('/home')">
             <el-icon class="svg-container" :size="20">
-                <House />
+                <House/>
             </el-icon>
             <span>首页</span>
         </el-menu-item>
-        <el-sub-menu index="1">
+        <el-sub-menu
+            v-for="item in menuTree"
+            :key="item.id"
+            :index="item.menuPath"
+        >
             <template #title>
                 <el-icon class="svg-container" :size="20">
-                    <Goods/>
+                    <component :is="item.menuIcon"/>
                 </el-icon>
-                <span>商品管理</span>
+                <span>{{ item.menuTitle }}</span>
             </template>
-            <el-menu-item index="/category" @click="savePath('/category')">
+            <el-menu-item
+                v-for="child in item.children"
+                :key="child.id"
+                :index="child.menuPath"
+                @click="savePath(child.menuPath)"
+            >
                 <el-icon class="svg-container" :size="20">
-                    <Iphone/>
+                    <component :is="child.menuIcon"/>
                 </el-icon>
-                <span>分类列表</span>
+                <span>{{ child.menuTitle }}</span>
             </el-menu-item>
-            <el-menu-item index="/brand" @click="savePath('/brand')">
-                <el-icon class="svg-container" :size="20">
-                    <Apple/>
-                </el-icon>
-                <span>品牌列表</span>
-            </el-menu-item>
-            <el-menu-item index="/goods" @click="savePath('/goods')">
-                <el-icon class="svg-container" :size="20">
-                    <GoodsFilled/>
-                </el-icon>
-                <span>商品列表</span>
-            </el-menu-item>
-        </el-sub-menu>
-        <el-sub-menu index="2">
-            <template #title>
-                <el-icon class="svg-container" :size="20">
-                    <Tickets/>
-                </el-icon>
-                <span>订单管理</span>
-            </template>
-            <el-menu-item index="/order" @click="savePath('/order')">
-                <el-icon class="svg-container" :size="20">
-                    <Ticket/>
-                </el-icon>
-                <span>订单列表</span>
-            </el-menu-item>
-        </el-sub-menu>
-        <el-sub-menu index="3">
-            <template #title>
-                <el-icon class="svg-container" :size="20">
-                    <User/>
-                </el-icon>
-                <span>用户管理</span>
-            </template>
-            <el-menu-item index="/user" @click="savePath('/user')">
-                <el-icon class="svg-container" :size="20">
-                    <UserFilled/>
-                </el-icon>
-                <span>用户列表</span>
-            </el-menu-item>
-            <el-menu-item index="/role" @click="savePath('/role')">
-                <el-icon class="svg-container" :size="20">
-                    <Flag/>
-                </el-icon>
-                <span>角色列表</span>
-            </el-menu-item>
-        </el-sub-menu>
-        <el-sub-menu index="4">
-            <template #title>
-                <el-icon class="svg-container" :size="20">
-                    <Setting/>
-                </el-icon>
-                <span>后台设置</span>
-            </template>
         </el-sub-menu>
     </el-menu>
 </template>
@@ -94,6 +49,15 @@ import {
     User, UserFilled, Flag,
     Setting
 } from '@element-plus/icons-vue'
+import { selectMenuTree } from '@/api/admin/menu'
+
+// 初始化菜单树
+const menuTree = ref([])
+const initMenuTree = async () => {
+    let result = await selectMenuTree()
+    menuTree.value = result.data
+}
+initMenuTree()
 
 // 指定当前的路径, 如果 SessionStorage 中存有路径则直接使用, 如果没有, 使用默认路径 /home
 const defaultActive = ref(sessionStorage.getItem('path') || '/home')
