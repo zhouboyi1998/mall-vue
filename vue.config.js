@@ -13,7 +13,7 @@ module.exports = {
     },
     devServer: {
         host: '127.0.0.1',
-        port: 18011,
+        port: 18001,
         open: true,
         proxy: {
             // Vue 请求路径中包含 /api 时, 自动代理请求到服务端地址
