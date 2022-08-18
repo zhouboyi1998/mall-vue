@@ -4,43 +4,43 @@ const routes = [
     {
         path: '/',
         name: '/',
-        component: () => import('../views/layout/Layout'),
+        component: () => import('../views/index/Index'),
         redirect: '/home',
         children: [
             {
                 path: '/home',
                 name: 'Home',
-                component: () => import('../views/layout/main/home/Home')
+                component: () => import('../views/index/main/home/Home')
             },
             {
                 path: '/category',
                 name: 'Category',
-                component: () => import('../views/layout/main/category/Category')
+                component: () => import('../views/index/main/category/Category')
             },
             {
                 path: '/brand',
                 name: 'Brand',
-                component: () => import('../views/layout/main/brand/Brand')
+                component: () => import('../views/index/main/brand/Brand')
             },
             {
                 path: '/goods',
                 name: 'Goods',
-                component: () => import('../views/layout/main/goods/Goods')
+                component: () => import('../views/index/main/goods/Goods')
             },
             {
                 path: '/order',
                 name: 'Order',
-                component: () => import('../views/layout/main/order/Order')
+                component: () => import('../views/index/main/order/Order')
             },
             {
                 path: '/user',
                 name: 'User',
-                component: () => import('../views/layout/main/user/User')
+                component: () => import('../views/index/main/user/User')
             },
             {
                 path: '/role',
                 name: 'Role',
-                component: () => import('../views/layout/main/role/Role')
+                component: () => import('../views/index/main/role/Role')
             }
         ]
     },
