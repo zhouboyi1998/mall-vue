@@ -14,7 +14,7 @@
                 <el-icon class="svg-container" :size="20">
                     <Lock/>
                 </el-icon>
-                <el-input v-model="form.password" type="password"/>
+                <el-input type="password" v-model="form.password" @keyup.enter.native="handleLogin"/>
             </el-form-item>
             <el-button class="login-button" type="primary" @click="handleLogin">登录</el-button>
         </el-form>
