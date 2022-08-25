@@ -1,7 +1,7 @@
 <template>
     <el-container class="app-wrapper">
         <el-aside width="200px" class="sidebar-container">
-            <Menu/>
+            <Sidebar/>
         </el-aside>
         <el-container class="container">
             <el-header>
@@ -16,7 +16,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import Menu from './menu/Menu'
+import Sidebar from './sidebar/Sidebar'
 import Header from './header/Header'
 </script>
 

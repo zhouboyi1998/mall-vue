@@ -38,9 +38,19 @@ const routes = [
                 component: () => import('../views/index/main/user/User')
             },
             {
+                path: '/admin',
+                name: 'Admin',
+                component: () => import('../views/index/main/admin/Admin')
+            },
+            {
                 path: '/role',
                 name: 'Role',
                 component: () => import('../views/index/main/role/Role')
+            },
+            {
+                path: '/menu',
+                name: 'Menu',
+                component: () => import('../views/index/main/menu/Menu')
             }
         ]
     },

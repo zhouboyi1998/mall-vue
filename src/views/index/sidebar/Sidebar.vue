@@ -49,7 +49,7 @@ import {
     User, UserFilled, Flag,
     Setting
 } from '@element-plus/icons-vue'
-import { selectMenuTree } from '@/api/admin/menu'
+import { selectMenuTree } from '@/api/layout/sidebar'
 
 // 初始化菜单树
 const menuTree = ref([])

@@ -1,12 +1,12 @@
 import request from "@/api/request"
 
-export const selectMenuPage = (params) => {
+export const selectAdminPage = (params) => {
     return request({
-        url: '/admin/menu/page/' + params.current + '/' + params.size,
+        url: '/admin/admin/page/' + params.current + '/' + params.size,
         method: 'post',
         headers: {
             'Authorization': localStorage.getItem('token')
         },
-        data: params.menu
+        data: params.admin
     })
 }

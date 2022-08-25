@@ -5,8 +5,8 @@
                 <!-- 搜索框 -->
                 <el-input
                     clearable
-                    v-model="params.role.roleName"
-                    placeholder="请输入角色名称"
+                    v-model="params.menu.menuName"
+                    placeholder="请输入菜单名称"
                     @keyup.enter.native="initTable"
                 />
             </el-col>
@@ -34,15 +34,15 @@
 <script setup>
 import { ref } from 'vue'
 import { Search, Plus } from '@element-plus/icons-vue'
-import { selectRolePage } from '@/api/admin/role'
+import { selectMenuPage } from '@/api/admin/menu'
 import { column } from './column'
 
 // 请求参数
 const params = ref({
     current: 1,
     size: 10,
-    role: {
-        roleName: ''
+    menu: {
+        menuName: ''
     }
 })
 
@@ -52,7 +52,7 @@ const tableData = ref([])
 // 初始化表格
 const initTable = async () => {
     // 发送请求获取表格数据
-    let result = await selectRolePage(params.value)
+    let result = await selectMenuPage(params.value)
     // 将返回的数据绑定到表格数据中
     tableData.value = result.data.records
 }
