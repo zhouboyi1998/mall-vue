@@ -22,9 +22,9 @@
                 :width="item.width"
             >
                 <template #default v-if="item.prop === 'option'">
-                    <el-button type="primary" size="small">查看</el-button>
-                    <el-button type="warning" size="small">编辑</el-button>
-                    <el-button type="danger" size="small">删除</el-button>
+                    <el-button type="primary" size="small" :icon="View">查看</el-button>
+                    <el-button type="warning" size="small" :icon="Edit">编辑</el-button>
+                    <el-button type="danger" size="small" :icon="Delete">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -33,7 +33,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Search, Plus } from '@element-plus/icons-vue'
+import { Search, Plus, View, Edit, Delete } from '@element-plus/icons-vue'
 import { selectRolePage } from '@/api/admin/role'
 import { column } from './column'
 
