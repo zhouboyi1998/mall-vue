@@ -28,6 +28,17 @@
                 </template>
             </el-table-column>
         </el-table>
+        <el-pagination
+            layout="total, sizes, prev, pager, next, jumper"
+            background
+            :page-sizes="[10, 20, 50, 100]"
+            v-model:currentPage="params.current"
+            v-model:page-size="params.size"
+            :total="total"
+            @current-change="handleCurrentChange"
+            @size-change="handleSizeChange"
+            class="pagination"
+        />
     </el-card>
 </template>
 
@@ -49,21 +60,50 @@ const params = ref({
 // 表格数据
 const tableData = ref([])
 
+// 数据总数
+const total = ref(0)
+
 // 初始化表格
 const initTable = async () => {
     // 发送请求获取表格数据
     let result = await selectMenuPage(params.value)
     // 将返回的数据绑定到表格数据中
     tableData.value = result.data.records
+    // 绑定数据总数
+    total.value = result.data.total
 }
 
 // 发送初始化请求
 initTable()
+
+// 选择页码
+const handleCurrentChange = (current) => {
+    // 改变页码
+    params.value.current = current
+    // 发起请求
+    initTable()
+}
+
+// 选择每页数量
+const handleSizeChange = (size) => {
+    // 回到第 1 页
+    params.value.current = 1
+    // 改变每页数量
+    params.value.size = size
+    // 发起请求
+    initTable()
+}
 </script>
 
 <style lang="scss" scoped>
+/* 表格头部 */
 .header {
     padding-bottom: 16px;
     box-sizing: border-box;
+}
+
+/* 分页器 */
+.pagination {
+    margin-top: 20px;
 }
 </style>
