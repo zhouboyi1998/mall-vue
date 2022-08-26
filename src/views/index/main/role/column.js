@@ -28,6 +28,6 @@ export const column = [
     {
         prop: 'option',
         label: '操作',
-        width: 200
+        width: 240
     }
 ]
