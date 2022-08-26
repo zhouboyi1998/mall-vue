@@ -41,7 +41,12 @@ import Header from './header/Header'
     }
 }
 
-::v-deep .el-header {
+:deep(.el-header) {
     padding: 0;
+}
+
+/* 搜索框 × 删除按钮居中 */
+:deep(.el-input__suffix) {
+    align-items: center;
 }
 </style>
