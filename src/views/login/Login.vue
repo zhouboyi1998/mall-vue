@@ -32,11 +32,13 @@ import { login } from '@/api/login'
 import { User, Lock } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 
+// 请求参数
 const form = reactive({
     username: '',
     password: ''
 })
 
+// 表单校验规则
 const rules = reactive({
     username: [
         {
@@ -56,23 +58,19 @@ const rules = reactive({
 
 const formRef = ref(null)
 
-// 登录按钮
+// 登录处理
 const handleLogin = () => {
     // 添加请求参数
     const params = new URLSearchParams()
     params.append('username', form.username)
     params.append('password', form.password)
 
-    // 异步发送登录请求
+    // 发送登录请求
     formRef.value.validate(async (valid) => {
         if (valid) {
             await login(params)
                 .then(res => {
-                    // 将用户 token 保存到 session 中
-                    localStorage.setItem('token', res.data.tokenPrefix + res.data.token)
-                    ElMessage({ message: '登录成功', type: 'success' })
-                    // 跳转到首页
-                    router.replace('/')
+                    success(res)
                 })
                 .catch(error => {
                     ElMessage.error('登录失败')
@@ -81,6 +79,21 @@ const handleLogin = () => {
             ElMessage.error('请输入账号和密码')
         }
     })
+}
+
+// 登录成功处理
+const success = (res) => {
+    // 将登录成功返回的 token 相关信息保存到 Local Storage 中
+    // 令牌前缀 + 访问令牌
+    localStorage.setItem('token', res.data.tokenPrefix + res.data.token)
+    // 刷新令牌 (刷新令牌不需要带令牌前缀)
+    localStorage.setItem('refreshToken', res.data.refreshToken)
+    // 访问令牌过期时间
+    localStorage.setItem('expiresIn', res.data.expiresIn)
+    // 跳转到首页
+    router.replace('/')
+    // 登录成功提示
+    ElMessage({ message: '登录成功', type: 'success' })
 }
 </script>
 
