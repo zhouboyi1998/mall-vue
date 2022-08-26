@@ -7,7 +7,8 @@
                     clearable
                     v-model="params.menu.menuName"
                     placeholder="请输入菜单名称"
-                    @keyup.enter.native="initTable"
+                    @change="initTable"
+                    @input="initTable"
                 />
             </el-col>
             <el-button type="primary" :icon="Search" @click="initTable">搜索</el-button>
