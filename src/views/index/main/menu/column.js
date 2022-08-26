@@ -34,12 +34,12 @@ export const column = [
     {
         prop: 'createTime',
         label: '创建时间',
-        width: 100
+        width: 160
     },
     {
         prop: 'updateTime',
         label: '更新时间',
-        width: 100
+        width: 160
     },
     {
         prop: 'option',
