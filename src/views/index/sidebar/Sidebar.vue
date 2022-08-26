@@ -12,7 +12,7 @@
             <el-icon class="svg-container" :size="20">
                 <House/>
             </el-icon>
-            <span>首页</span>
+            <span>系统首页</span>
         </el-menu-item>
         <el-sub-menu
             v-for="item in menuTree"
