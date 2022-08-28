@@ -28,9 +28,13 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import router from '@/router'
+import { useTokenStore } from '@/store'
 import { login } from '@/api/login'
 import { User, Lock } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
+
+// 使用 Pinia Store
+const tokenStore = useTokenStore()
 
 // 请求参数
 const form = reactive({
@@ -70,7 +74,10 @@ const handleLogin = () => {
         if (valid) {
             await login(params)
                 .then(res => {
-                    success(res)
+                    saveToken(res)
+                    // 跳转到首页
+                    router.replace('/')
+                    ElMessage({ message: '登录成功', type: 'success' })
                 })
                 .catch(error => {
                     ElMessage.error('登录失败')
@@ -81,19 +88,26 @@ const handleLogin = () => {
     })
 }
 
-// 登录成功处理
-const success = (res) => {
-    // 将登录成功返回的 token 相关信息保存到 Local Storage 中
+// 保存令牌
+const saveToken = (res) => {
     // 令牌前缀 + 访问令牌
-    localStorage.setItem('token', res.data.tokenPrefix + res.data.token)
+    let token = res.data.tokenPrefix + res.data.token
     // 刷新令牌 (刷新令牌不需要带令牌前缀)
-    localStorage.setItem('refreshToken', res.data.refreshToken)
+    let refreshToken = res.data.refreshToken
     // 访问令牌过期时间
-    localStorage.setItem('expiresIn', res.data.expiresIn)
-    // 跳转到首页
-    router.replace('/')
-    // 登录成功提示
-    ElMessage({ message: '登录成功', type: 'success' })
+    let expiresIn = res.data.expiresIn
+
+    // 将 token 保存到 Pinia Store 中
+    tokenStore.$patch({
+        token: token,
+        refreshToken: refreshToken,
+        expiresIn: expiresIn
+    })
+
+    // 将 token 保存到 Local Storage 中
+    localStorage.setItem('token', token)
+    localStorage.setItem('refreshToken', refreshToken)
+    localStorage.setItem('expiresIn', expiresIn)
 }
 </script>
 
