@@ -1,9 +1,13 @@
-import { createStore } from 'vuex'
+import { defineStore } from 'pinia'
 
-export default createStore({
-    state: {},
+export const useTokenStore = defineStore('TOKEN', {
+    state: () => {
+        return {
+            token: '',
+            refreshToken: '',
+            expiresIn: 0
+        }
+    },
     getters: {},
-    mutations: {},
-    actions: {},
-    modules: {}
+    actions: {}
 })
