@@ -23,7 +23,7 @@
                 :width="item.width"
             >
                 <template #default v-if="item.prop === 'option'">
-                    <el-button type="primary" size="small" :icon="View">查看</el-button>
+                    <el-button type="success" size="small" :icon="View">查看</el-button>
                     <el-button type="warning" size="small" :icon="Edit">编辑</el-button>
                     <el-button type="danger" size="small" :icon="Delete">删除</el-button>
                 </template>
