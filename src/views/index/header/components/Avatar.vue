@@ -15,12 +15,19 @@
 
 <script setup>
 import router from '@/router'
+import { useTokenStore } from '@/store'
 import { ElMessage } from 'element-plus'
+
+const tokenStore = useTokenStore()
 
 // 退出处理
 const handleLogout = () => {
+    // 重置 Pinia Store
+    tokenStore.$reset()
     // 清空 Local Storage
     localStorage.clear()
+    // 清空 Session Storage
+    sessionStorage.clear()
     // 跳转到登录页
     router.replace('/login')
     // 退出成功提示

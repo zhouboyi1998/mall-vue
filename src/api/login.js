@@ -1,7 +1,7 @@
 import request from "@/api/request"
 
+// 登录请求
 export const login = (params) => {
-
     // 添加登录验证需要的请求参数
     params.append('grant_type', 'password')
     params.append('client_id', 'manage')

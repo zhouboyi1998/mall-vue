@@ -33,7 +33,6 @@ import { login } from '@/api/login'
 import { User, Lock } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 
-// 使用 Pinia Store
 const tokenStore = useTokenStore()
 
 // 请求参数
@@ -94,8 +93,8 @@ const saveToken = (res) => {
     let token = res.data.tokenPrefix + res.data.token
     // 刷新令牌 (刷新令牌不需要带令牌前缀)
     let refreshToken = res.data.refreshToken
-    // 访问令牌过期时间
-    let expiresIn = res.data.expiresIn
+    // 当前时间戳 + 访问令牌过期时长 == 访问令牌过期时间 (减去 10 秒预防误差)
+    let expiresIn = Date.now() + res.data.expiresIn - 10000
 
     // 将 token 保存到 Pinia Store 中
     tokenStore.$patch({
@@ -107,7 +106,7 @@ const saveToken = (res) => {
     // 将 token 保存到 Local Storage 中
     localStorage.setItem('token', token)
     localStorage.setItem('refreshToken', refreshToken)
-    localStorage.setItem('expiresIn', expiresIn)
+    localStorage.setItem('expiresIn', expiresIn.toString())
 }
 </script>
 
