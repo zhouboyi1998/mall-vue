@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useTokenStore = defineStore('TOKEN', {
     state: () => ({
-        token: '',
+        accessToken: '',
         refreshToken: '',
         expiresIn: 0
     }),

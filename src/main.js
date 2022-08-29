@@ -11,7 +11,7 @@ import * as ElIcons from '@element-plus/icons-vue'
 const app = createApp(App)
 
 // 新建 Pinia Store
-const store = createPinia()
+const pinia = createPinia()
 
 // 将所有 Element Plus 图标全局注册为 Vue 组件
 for (const name in ElIcons) {
@@ -19,4 +19,4 @@ for (const name in ElIcons) {
 }
 
 // 安装 Vue-Router 插件 / Pinia 插件
-app.use(router).use(store).mount('#app')
+app.use(router).use(pinia).mount('#app')
