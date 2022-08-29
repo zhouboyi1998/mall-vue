@@ -33,6 +33,7 @@ import { login } from '@/api/login'
 import { User, Lock } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 
+// 获取存储 Token 的 Pinia 仓库
 const tokenStore = useTokenStore()
 
 // 请求参数
@@ -90,21 +91,21 @@ const handleLogin = () => {
 // 保存令牌
 const saveToken = (res) => {
     // 令牌前缀 + 访问令牌
-    let token = res.data.tokenPrefix + res.data.token
+    let accessToken = res.data.tokenPrefix + res.data.accessToken
     // 刷新令牌 (刷新令牌不需要带令牌前缀)
     let refreshToken = res.data.refreshToken
-    // 当前时间戳 + 访问令牌过期时长 == 访问令牌过期时间 (减去 10 秒预防误差)
-    let expiresIn = Date.now() + res.data.expiresIn - 10000
+    // 当前时间戳 + 访问令牌过期时长 == 访问令牌过期时间
+    let expiresIn = Date.now() + res.data.expiresIn
 
     // 将 token 保存到 Pinia Store 中
     tokenStore.$patch({
-        token: token,
+        accessToken: accessToken,
         refreshToken: refreshToken,
         expiresIn: expiresIn
     })
 
     // 将 token 保存到 Local Storage 中
-    localStorage.setItem('token', token)
+    localStorage.setItem('accessToken', accessToken)
     localStorage.setItem('refreshToken', refreshToken)
     localStorage.setItem('expiresIn', expiresIn.toString())
 }
