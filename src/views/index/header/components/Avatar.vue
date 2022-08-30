@@ -40,20 +40,26 @@ const handleLogout = () => {
 </script>
 
 <style lang="scss" scoped>
-/* 头像文本 */
+// el-avatar 背景颜色改为 none
+.el-avatar {
+    --el-avatar-background-color: none !important;
+    --el-avatar-bg-color: none !important;
+}
+
+// 头像文本
 .avatar-text {
     font-size: 28px;
 }
 
-/* 下拉框 */
+// 下拉框
 .dropdown {
-    /* 设置鼠标悬停样式 */
+    // 设置鼠标悬停样式
     cursor: pointer;
 }
 
-/* 下拉框项 */
+// 下拉框项
 :deep(.el-dropdown-menu__item) {
-    /* 设置不换行 */
+    // 设置不换行
     white-space: nowrap;
 }
 </style>

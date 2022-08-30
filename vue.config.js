@@ -3,14 +3,16 @@ const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 module.exports = {
+    // Webpack 配置
     configureWebpack: config => {
         config.plugins.push(AutoImport({
-            resolvers: [ElementPlusResolver()],
+            resolvers: [ElementPlusResolver()]
         }))
         config.plugins.push(Components({
-            resolvers: [ElementPlusResolver()],
+            resolvers: [ElementPlusResolver()]
         }))
     },
+    // 开发配置
     devServer: {
         host: '127.0.0.1',
         port: 18001,
@@ -31,13 +33,13 @@ module.exports = {
             }
         }
     },
-    // 全局导入以下 CSS 样式 (为每一个 Vue 文件导入)
+    // 全局导入以下 CSS 样式文件到每一个 Vue 文件中
     css: {
         loaderOptions: {
             sass: {
                 additionalData: `
-                    @import '@/assets/scss/variables.scss';
                     @import '@/assets/scss/mixin.scss';
+                    @import '@/assets/scss/variables.scss';
                 `
             }
         }

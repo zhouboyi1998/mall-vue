@@ -112,15 +112,14 @@ const saveToken = (res) => {
 </script>
 
 <style lang="scss" scoped>
-$bg: #2d3a4b;
-$dark_gray: #889aa4;
-$light_gray: #eee;
-$cursor: #fff;
+$background-color: #2D3A4B;
+$dark-gray: #889AA4;
+$light-gray: #EEEEEE;
 
 .login-container {
     min-height: 100%;
     width: 100%;
-    background-color: $bg;
+    background-color: $background-color;
     overflow: hidden;
 
     .login-form {
@@ -131,7 +130,7 @@ $cursor: #fff;
         margin: 0 auto;
         overflow: hidden;
 
-        /* 密码框 view 显示密码按钮居中 */
+        // 密码框 view 显示密码按钮上下居中 (element-plus 默认的 css 没有对齐)
         :deep(.el-input__suffix-inner) {
             align-items: center;
         }
@@ -154,9 +153,9 @@ $cursor: #fff;
                 -webkit-appearance: none;
                 border-radius: 0px;
                 padding: 12px 5px 12px 15px;
-                color: $light_gray;
+                color: $light-gray;
                 height: 47px;
-                caret-color: $cursor;
+                caret-color: #FFFFFF;
             }
         }
 
@@ -169,7 +168,7 @@ $cursor: #fff;
     .tips {
         font-size: 16px;
         line-height: 28px;
-        color: #fff;
+        color: #FFFFFF;
         margin-bottom: 10px;
 
         span {
@@ -181,7 +180,7 @@ $cursor: #fff;
 
     .svg-container {
         padding: 6px 5px 6px 15px;
-        color: $dark_gray;
+        color: $dark-gray;
         vertical-align: middle;
         display: inline-block;
     }
@@ -191,7 +190,7 @@ $cursor: #fff;
 
         .title {
             font-size: 26px;
-            color: $light_gray;
+            color: $light-gray;
             margin: 0px auto 40px auto;
             text-align: center;
             font-weight: bold;
@@ -211,7 +210,7 @@ $cursor: #fff;
 
     .show-pwd {
         font-size: 16px;
-        color: $dark_gray;
+        color: $dark-gray;
         cursor: pointer;
         user-select: none;
     }
