@@ -1,12 +1,14 @@
 import axios from 'axios'
 import { useTokenStore } from '@/store/token'
 import { usePathStore } from '@/store/path'
+import { useLayoutStore } from '@/store/layout'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
 const pathStore = usePathStore()
+const layoutStore = useLayoutStore()
 
 // 新建 axios 实例
 const instance = axios.create({
@@ -27,12 +29,12 @@ instance.interceptors.request.use(request => {
 instance.interceptors.response.use(response => {
     return response
 }, async error => {
-    // 如果返回 401, 说明访问令牌和刷新令牌都过期了
-    // 如果刷新令牌没有过期, 携带过期的访问令牌访问时, 后端会自动刷新
+    // 访问令牌和刷新令牌都过期, 清空所有状态, 跳转至登录页
     if (error.response.status === 401) {
         // 重置 Pinia Store
         tokenStore.$reset()
         pathStore.$reset()
+        layoutStore.$reset()
         // 清空 Local Storage
         localStorage.clear()
         // 清空 Session Storage

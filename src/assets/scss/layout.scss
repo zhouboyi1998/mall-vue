@@ -10,7 +10,6 @@
 
     .sidebar-container {
         transition: width #{$side-bar-duration};
-        // width: $sideBarWidth !important;
         height: 100%;
         position: fixed;
         top: 0;
@@ -19,7 +18,7 @@
         z-index: 1001;
         overflow: hidden;
         background-color: $menu-background-color;
-        // 重置 element-plus 的 css
+
         .horizontal-collapse-transition {
             transition: 0s width ease-in-out,
             0s padding-left ease-in-out,
@@ -100,7 +99,7 @@
                 }
 
                 .sub-el-icon {
-                    margin-left: 19px;
+                    margin-left: 20px;
                 }
             }
         }
@@ -164,7 +163,6 @@
         }
     }
 
-    // el-menu 菜单项太多时, menu 高度最大为 100vh, 不能超出页面高度
     > .el-menu--popup {
         max-height: 100vh;
         overflow-y: auto;
