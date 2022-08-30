@@ -1,46 +1,48 @@
 <template>
-    <el-card>
-        <el-row :gutter="20" class="header">
-            <el-col :span="7">
-                <!-- 搜索框 -->
-                <el-input
-                    clearable
-                    v-model="params.role.roleName"
-                    placeholder="请输入角色名称"
-                    @change="initTable"
-                    @input="initTable"
-                />
-            </el-col>
-            <el-button type="primary" :icon="Search" @click="initTable">搜索</el-button>
-            <el-button type="primary" :icon="Plus">添加</el-button>
-        </el-row>
-        <el-table :data="tableData" stripe style="width: 100%">
-            <el-table-column
-                v-for="(item, index) in column"
-                :key="index"
-                :prop="item.prop"
-                :label="item.label"
-                :width="item.width"
-            >
-                <template #default v-if="item.prop === 'option'">
-                    <el-button type="success" size="small" :icon="View">查看</el-button>
-                    <el-button type="warning" size="small" :icon="Edit">编辑</el-button>
-                    <el-button type="danger" size="small" :icon="Delete">删除</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-        <el-pagination
-            layout="total, sizes, prev, pager, next, jumper"
-            background
-            :page-sizes="[10, 20, 50, 100]"
-            v-model:currentPage="params.current"
-            v-model:page-size="params.size"
-            :total="total"
-            @current-change="handleCurrentChange"
-            @size-change="handleSizeChange"
-            class="pagination"
-        />
-    </el-card>
+    <el-scrollbar>
+        <el-card>
+            <el-row :gutter="20" class="header">
+                <el-col :span="7">
+                    <!-- 搜索框 -->
+                    <el-input
+                        clearable
+                        v-model="params.role.roleName"
+                        placeholder="请输入角色名称"
+                        @change="initTable"
+                        @input="initTable"
+                    />
+                </el-col>
+                <el-button type="primary" :icon="Search" @click="initTable">搜索</el-button>
+                <el-button type="primary" :icon="Plus">添加</el-button>
+            </el-row>
+            <el-table :data="tableData" stripe style="width: 100%">
+                <el-table-column
+                    v-for="(item, index) in column"
+                    :key="index"
+                    :prop="item.prop"
+                    :label="item.label"
+                    :width="item.width"
+                >
+                    <template #default v-if="item.prop === 'option'">
+                        <el-button type="success" size="small" :icon="View">查看</el-button>
+                        <el-button type="warning" size="small" :icon="Edit">编辑</el-button>
+                        <el-button type="danger" size="small" :icon="Delete">删除</el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-pagination
+                layout="total, sizes, prev, pager, next, jumper"
+                background
+                :page-sizes="[10, 20, 50, 100]"
+                v-model:currentPage="params.current"
+                v-model:page-size="params.size"
+                :total="total"
+                @current-change="handleCurrentChange"
+                @size-change="handleSizeChange"
+                class="pagination"
+            />
+        </el-card>
+    </el-scrollbar>
 </template>
 
 <script setup>

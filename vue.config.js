@@ -32,16 +32,5 @@ module.exports = {
                 }
             }
         }
-    },
-    // 全局导入以下 CSS 样式文件到每一个 Vue 文件中
-    css: {
-        loaderOptions: {
-            sass: {
-                additionalData: `
-                    @import '@/assets/scss/mixin.scss';
-                    @import '@/assets/scss/variables.scss';
-                `
-            }
-        }
     }
 }

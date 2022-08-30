@@ -17,17 +17,20 @@
 import router from '@/router'
 import { useTokenStore } from '@/store/token'
 import { usePathStore } from '@/store/path'
+import { useLayoutStore } from '@/store/layout'
 import { ElMessage } from 'element-plus'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
 const pathStore = usePathStore()
+const layoutStore = useLayoutStore()
 
 // 退出处理
 const handleLogout = () => {
     // 重置 Pinia Store
     tokenStore.$reset()
     pathStore.$reset()
+    layoutStore.$reset()
     // 清空 Local Storage
     localStorage.clear()
     // 清空 Session Storage

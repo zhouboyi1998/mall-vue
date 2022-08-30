@@ -1,23 +1,27 @@
 <template>
     <el-container class="app-wrapper">
-        <el-aside width="200px" class="sidebar-container">
+        <el-aside :width="layoutStore.asideWidth" class="sidebar-container">
             <Sidebar/>
         </el-aside>
-        <el-container class="container">
+        <el-container class="container" :class="{ hidden: layoutStore.sidebarCollapse }">
             <el-header>
                 <Header/>
             </el-header>
             <el-main>
-                <router-view />
+                <router-view/>
             </el-main>
         </el-container>
     </el-container>
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { ref } from 'vue'
+import { useLayoutStore } from '@/store/layout'
 import Sidebar from './sidebar/Sidebar'
 import Header from './header/Header'
+
+// 获取 Pinia 仓库
+const layoutStore = useLayoutStore()
 </script>
 
 <style lang="scss" scoped>
@@ -36,8 +40,8 @@ import Header from './header/Header'
     z-index: 9;
     transition: all 0.28s;
 
-    &.hiddenContainer {
-        width: calc(100% - 60px);
+    &.hidden {
+        width: calc(100% - 68px);
     }
 }
 
