@@ -8,7 +8,7 @@
         router
         unique-opened
     >
-        <el-menu-item index="/home" @click="savePath('/home')">
+        <el-menu-item index="/home" @click="saveRoutePath('/home')">
             <el-icon class="svg-container" :size="20">
                 <House/>
             </el-icon>
@@ -29,7 +29,7 @@
                 v-for="child in item.children"
                 :key="child.id"
                 :index="child.menuPath"
-                @click="savePath(child.menuPath)"
+                @click="saveRoutePath(child.menuPath)"
             >
                 <el-icon class="svg-container" :size="20">
                     <component :is="child.menuIcon"/>
@@ -42,6 +42,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { usePathStore } from '@/store/path'
 import {
     House,
     Goods, Iphone, Apple, GoodsFilled,
@@ -51,20 +52,32 @@ import {
 } from '@element-plus/icons-vue'
 import { selectMenuTree } from '@/api/layout/sidebar'
 
-// 初始化菜单树
+// 获取 Pinia 仓库
+const pathStore = usePathStore()
+
+// 菜单树列表
 const menuTree = ref([])
+
+// 初始化菜单树
 const initMenuTree = async () => {
     let result = await selectMenuTree()
     menuTree.value = result.data
 }
+
+// 发送初始化请求
 initMenuTree()
 
-// 指定当前的路径, 如果 SessionStorage 中存有路径则直接使用, 如果没有, 使用默认路径 /home
-const defaultActive = ref(sessionStorage.getItem('path') || '/home')
+// 指定当前的路径, 如果有保存当前路径, 直接使用, 如果没有保存, 使用默认路径 /home
+const defaultActive = ref(
+    pathStore.routePath || sessionStorage.getItem('routePath') || '/home'
+)
 
-// 将当前路径保存到 SessionStorage 中
-const savePath = (path) => {
-    sessionStorage.setItem('path', `${ path }`)
+// 保存当前路径
+const saveRoutePath = (routePath) => {
+    // 将 Path 保存到 Pinia Store 中
+    pathStore.$patch({ routePath: routePath })
+    // 将 Path 保存到 Session Storage 中
+    sessionStorage.setItem('routePath', `${ routePath }`)
 }
 </script>
 
