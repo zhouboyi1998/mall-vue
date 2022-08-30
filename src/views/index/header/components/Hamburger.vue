@@ -1,8 +1,8 @@
 <template>
     <div class="hamburger-container" @click="handleClickHamburger">
         <el-icon>
-            <component class="hamburger-icon" :is="Fold" v-if="!layoutStore.sidebarCollapse"/>
             <component class="hamburger-icon" :is="Expand" v-if="layoutStore.sidebarCollapse"/>
+            <component class="hamburger-icon" :is="Fold" v-else/>
         </el-icon>
     </div>
 </template>
@@ -31,8 +31,6 @@ const handleClickHamburger = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/scss/variables";
-
 .hamburger-container {
     margin-right: 16px;
     box-sizing: border-box;
@@ -40,11 +38,11 @@ const handleClickHamburger = () => {
 }
 
 .hamburger-icon {
-    color: $menu-background-color;
+    color: $main-color;
     cursor: pointer;
 
     &:hover {
-        color: #FFD04B;
+        color: $hover-color;
     }
 }
 </style>

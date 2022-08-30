@@ -5,13 +5,13 @@
                 <h3 class="title">后台管理系统</h3>
             </div>
             <el-form-item prop="username">
-                <el-icon class="svg-container" :size="20">
+                <el-icon class="icon-container" :size="20">
                     <User/>
                 </el-icon>
                 <el-input v-model="form.username"/>
             </el-form-item>
             <el-form-item prop="password">
-                <el-icon class="svg-container" :size="20">
+                <el-icon class="icon-container" :size="20">
                     <Lock/>
                 </el-icon>
                 <el-input
@@ -20,7 +20,9 @@
                     @keyup.enter.native="handleLogin"
                 />
             </el-form-item>
-            <el-button class="login-button" type="primary" @click="handleLogin">登录</el-button>
+            <el-button class="login-button" type="primary" @click="handleLogin">
+                登&nbsp;&nbsp;录
+            </el-button>
         </el-form>
     </div>
 </template>
@@ -101,14 +103,10 @@ const handleLogin = () => {
 </script>
 
 <style lang="scss" scoped>
-$background-color: #2D3A4B;
-$dark-gray: #889AA4;
-$light-gray: #EEEEEE;
-
 .login-container {
     min-height: 100%;
     width: 100%;
-    background-color: $background-color;
+    background-color: $main-color;
     overflow: hidden;
 
     .login-form {
@@ -125,10 +123,10 @@ $light-gray: #EEEEEE;
         }
 
         :deep(.el-form-item) {
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid $dark-gray-color;
+            background: $black-color-point;
             border-radius: 5px;
-            color: #454545;
+            color: $dark-gray-color;
         }
 
         :deep(.el-input) {
@@ -142,22 +140,23 @@ $light-gray: #EEEEEE;
                 -webkit-appearance: none;
                 border-radius: 0px;
                 padding: 12px 5px 12px 15px;
-                color: $light-gray;
+                color: $light-gray-color;
                 height: 47px;
-                caret-color: #FFFFFF;
+                caret-color: $white-color;
             }
         }
 
         .login-button {
             width: 100%;
             box-sizing: border-box;
+            font-weight: bold;
         }
     }
 
     .tips {
         font-size: 16px;
         line-height: 28px;
-        color: #FFFFFF;
+        color: $white-color;
         margin-bottom: 10px;
 
         span {
@@ -167,9 +166,9 @@ $light-gray: #EEEEEE;
         }
     }
 
-    .svg-container {
+    .icon-container {
         padding: 6px 5px 6px 15px;
-        color: $dark-gray;
+        color: $medium-light-gray-color;
         vertical-align: middle;
         display: inline-block;
     }
@@ -179,7 +178,7 @@ $light-gray: #EEEEEE;
 
         .title {
             font-size: 26px;
-            color: $light-gray;
+            color: $light-gray-color;
             margin: 0px auto 40px auto;
             text-align: center;
             font-weight: bold;
@@ -189,7 +188,7 @@ $light-gray: #EEEEEE;
             position: absolute;
             top: 4px;
             right: 0;
-            background-color: white;
+            background-color: $white-color;
             font-size: 22px;
             padding: 4px;
             border-radius: 4px;
@@ -199,7 +198,7 @@ $light-gray: #EEEEEE;
 
     .show-pwd {
         font-size: 16px;
-        color: $dark-gray;
+        color: $medium-light-gray-color;
         cursor: pointer;
         user-select: none;
     }

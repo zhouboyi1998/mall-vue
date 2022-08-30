@@ -12,6 +12,18 @@ module.exports = {
             resolvers: [ElementPlusResolver()]
         }))
     },
+    // CSS 配置
+    css: {
+        loaderOptions: {
+            // SASS 配置
+            sass: {
+                // 全局引入样式文件
+                additionalData: `
+                    @import '@/assets/scss/variable.scss';
+                `
+            }
+        }
+    },
     // 开发配置
     devServer: {
         host: '127.0.0.1',

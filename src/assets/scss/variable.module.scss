@@ -1,0 +1,25 @@
+@import './variable';
+
+:export {
+    mainColor: $main-color;
+    mediumLightColor: $medium-light-color;
+    mediumDarkColor: $medium-dark-color;
+    darkColor: $dark-color;
+
+    textColor: $text-color;
+    hoverColor: $hover-color;
+
+    lightGrayColor: $light-gray-color;
+    mediumLightGrayColor: $medium-light-gray-color;
+    mediumDarkGrayColor: $medium-dark-gray-color;
+    darkGrayColor: $dark-gray-color;
+
+    whiteColor: $white-color;
+    blackColor: $black-color;
+    whiteColorPoint: $white-color-point;
+    blackColorPoint: $black-color-point;
+
+    sidebarWidth: $sidebar-width;
+    sidebarCollapseWidth: $sidebar-collapse-width;
+    sidebarDuration: $sidebar-duration;
+}
