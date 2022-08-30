@@ -4,6 +4,7 @@ import { usePathStore } from '@/store/path'
 import { useLayoutStore } from '@/store/layout'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
+import { login } from '@/api/login'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
@@ -18,8 +19,8 @@ const instance = axios.create({
 
 // axios 请求拦截器
 instance.interceptors.request.use(request => {
-    // 添加访问令牌到请求头中
-    request.headers.Authorization = tokenStore.accessToken || localStorage.getItem('accessToken')
+    // 添加 Access Token 到请求头中
+    request.headers.Authorization = tokenStore.accessToken
     return request
 }, error => {
     return Promise.reject(new Error(error))
@@ -29,19 +30,39 @@ instance.interceptors.request.use(request => {
 instance.interceptors.response.use(response => {
     return response
 }, async error => {
-    // 访问令牌和刷新令牌都过期, 清空所有状态, 跳转至登录页
+    // Access Token 和 Refresh Token 都过期, 清空所有状态, 跳转至登录页
     if (error.response.status === 401) {
-        // 重置 Pinia Store
-        tokenStore.$reset()
-        pathStore.$reset()
-        layoutStore.$reset()
-        // 清空 Local Storage
-        localStorage.clear()
-        // 清空 Session Storage
-        sessionStorage.clear()
-        // 跳转到登录页
-        await router.replace('/login')
-        ElMessage.warning('登录已过期 / 请重新登录')
+        // 请求参数
+        const params = new URLSearchParams()
+        // 刷新令牌模式
+        params.append('grant_type', 'refresh_token')
+        params.append('refresh_token', tokenStore.refreshToken)
+        // 发起请求, 刷新 Access Token 过期时间
+        await login(params)
+            .then(res => {
+                // 将 token 保存到 Pinia Store 中
+                tokenStore.$patch({
+                    // Access Token (需要添加前缀)
+                    accessToken: res.data.tokenPrefix + res.data.accessToken,
+                    // Refresh Token
+                    refreshToken: res.data.refreshToken,
+                    // 当前时间戳 + Access Token 过期时长 == Access Token 过期时间
+                    expiresIn: Date.now() + res.data.expiresIn
+                })
+            })
+            .catch(error => {
+                // 重置 Pinia Store
+                tokenStore.$reset()
+                pathStore.$reset()
+                layoutStore.$reset()
+                // 清空 Local Storage
+                localStorage.clear()
+                // 清空 Session Storage
+                sessionStorage.clear()
+                // 跳转到登录页
+                router.replace('/login')
+                ElMessage.warning('登录已过期 / 请重新登录')
+            })
     }
     return Promise.reject(new Error(error))
 })

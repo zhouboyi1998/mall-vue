@@ -64,17 +64,28 @@ const formRef = ref(null)
 
 // 登录处理
 const handleLogin = () => {
-    // 添加请求参数
+    // 请求参数
     const params = new URLSearchParams()
+    // 密码模式登录
+    params.append('grant_type', 'password')
     params.append('username', form.username)
     params.append('password', form.password)
 
-    // 发送登录请求
+    // 校验 form 表单
     formRef.value.validate(async (valid) => {
         if (valid) {
+            // 如果校验通过, 发起登录请求
             await login(params)
                 .then(res => {
-                    saveToken(res)
+                    // 将 token 保存到 Pinia Store 中
+                    tokenStore.$patch({
+                        // Access Token (需要添加前缀)
+                        accessToken: res.data.tokenPrefix + res.data.accessToken,
+                        // Refresh Token
+                        refreshToken: res.data.refreshToken,
+                        // 当前时间戳 + Access Token 过期时长 == Access Token 过期时间
+                        expiresIn: Date.now() + res.data.expiresIn
+                    })
                     // 跳转到首页
                     router.replace('/')
                     ElMessage({ message: '登录成功', type: 'success' })
@@ -86,28 +97,6 @@ const handleLogin = () => {
             ElMessage.error('请输入账号和密码')
         }
     })
-}
-
-// 保存令牌
-const saveToken = (res) => {
-    // 令牌前缀 + 访问令牌
-    let accessToken = res.data.tokenPrefix + res.data.accessToken
-    // 刷新令牌 (刷新令牌不需要带令牌前缀)
-    let refreshToken = res.data.refreshToken
-    // 当前时间戳 + 访问令牌过期时长 == 访问令牌过期时间
-    let expiresIn = Date.now() + res.data.expiresIn
-
-    // 将 token 保存到 Pinia Store 中
-    tokenStore.$patch({
-        accessToken: accessToken,
-        refreshToken: refreshToken,
-        expiresIn: expiresIn
-    })
-
-    // 将 token 保存到 Local Storage 中
-    localStorage.setItem('accessToken', accessToken)
-    localStorage.setItem('refreshToken', refreshToken)
-    localStorage.setItem('expiresIn', expiresIn.toString())
 }
 </script>
 

@@ -81,8 +81,6 @@ const defaultActive = ref(
 const saveRoutePath = (routePath) => {
     // 将 Path 保存到 Pinia Store 中
     pathStore.$patch({ routePath: routePath })
-    // 将 Path 保存到 Session Storage 中
-    sessionStorage.setItem('routePath', `${ routePath }`)
 }
 </script>
 
