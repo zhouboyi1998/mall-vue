@@ -1,12 +1,12 @@
 import router from './index'
-import { useTokenStore } from '@/store'
+import { useTokenStore } from '@/store/token'
 
 // 白名单页面 (不需要 token 就可以访问)
 const whiteList = ['/login']
 
 // 前置路由守卫
 router.beforeEach((to, from, next) => {
-    // 获取存储 Token 的 Pinia 仓库
+    // 获取 Pinia 仓库
     const tokenStore = useTokenStore()
     // 获取访问令牌
     let accessToken = tokenStore.accessToken || localStorage.getItem('accessToken')

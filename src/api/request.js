@@ -1,10 +1,12 @@
 import axios from 'axios'
-import { useTokenStore } from '@/store'
+import { useTokenStore } from '@/store/token'
+import { usePathStore } from '@/store/path'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
 
-// 获取存储 Token 的 Pinia 仓库
+// 获取 Pinia 仓库
 const tokenStore = useTokenStore()
+const pathStore = usePathStore()
 
 // 新建 axios 实例
 const instance = axios.create({
@@ -30,6 +32,7 @@ instance.interceptors.response.use(response => {
     if (error.response.status === 401) {
         // 重置 Pinia Store
         tokenStore.$reset()
+        pathStore.$reset()
         // 清空 Local Storage
         localStorage.clear()
         // 清空 Session Storage

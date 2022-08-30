@@ -15,15 +15,19 @@
 
 <script setup>
 import router from '@/router'
-import { useTokenStore } from '@/store'
+import { useTokenStore } from '@/store/token'
+import { usePathStore } from '@/store/path'
 import { ElMessage } from 'element-plus'
 
+// 获取 Pinia 仓库
 const tokenStore = useTokenStore()
+const pathStore = usePathStore()
 
 // 退出处理
 const handleLogout = () => {
     // 重置 Pinia Store
     tokenStore.$reset()
+    pathStore.$reset()
     // 清空 Local Storage
     localStorage.clear()
     // 清空 Session Storage

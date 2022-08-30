@@ -28,12 +28,12 @@
 <script setup>
 import { reactive, ref } from 'vue'
 import router from '@/router'
-import { useTokenStore } from '@/store'
+import { useTokenStore } from '@/store/token'
 import { login } from '@/api/login'
 import { User, Lock } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 
-// 获取存储 Token 的 Pinia 仓库
+// 获取 Pinia 仓库
 const tokenStore = useTokenStore()
 
 // 请求参数
