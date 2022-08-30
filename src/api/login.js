@@ -1,13 +1,18 @@
-import request from "@/api/request"
+import axios from 'axios'
+
+// 新建 axios 实例
+const instance = axios.create({
+    baseURL: '/api',
+    timeout: 10000
+})
 
 // 登录请求
 export const login = (params) => {
-    // 添加登录验证需要的请求参数
-    params.append('grant_type', 'password')
+    // 添加 client_id / client_secret 到请求参数中
     params.append('client_id', 'manage')
     params.append('client_secret', '123456')
 
-    return request({
+    return instance({
         url: '/security/oauth/token',
         method: 'post',
         headers: {

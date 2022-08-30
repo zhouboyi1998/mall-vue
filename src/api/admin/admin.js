@@ -1,7 +1,7 @@
-import request from "@/api/request"
+import instance from "@/api/request"
 
 export const selectAdminPage = (params) => {
-    return request({
+    return instance({
         url: '/admin/admin/page/' + params.current + '/' + params.size,
         method: 'post',
         data: params.admin
