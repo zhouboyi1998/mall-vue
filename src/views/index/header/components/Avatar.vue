@@ -7,7 +7,9 @@
     </span>
         <template #dropdown>
             <el-dropdown-menu>
-                <el-dropdown-item @click="handleLogout">退出系统</el-dropdown-item>
+                <el-dropdown-item @click="handleLogout">
+                    <span class="dropdown-item">退出系统</span>
+                </el-dropdown-item>
             </el-dropdown-menu>
         </template>
     </el-dropdown>
@@ -54,10 +56,20 @@ const handleLogout = () => {
     font-size: 28px;
 }
 
-// 下拉框
+// 下拉菜单
 .dropdown {
     // 设置鼠标悬停样式
     cursor: pointer;
+}
+
+// 下拉菜单项
+.dropdown-item {
+    color: $text-color;
+    font-weight: bold;
+
+    &:hover {
+        color: $hover-color;
+    }
 }
 
 // 下拉框项

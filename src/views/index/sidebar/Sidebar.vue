@@ -1,14 +1,13 @@
 <template>
     <el-scrollbar>
         <el-menu
-            active-text-color="#FFD04B"
-            background-color="#304156"
-            class="el-menu-vertical-demo"
+            class="el-menu-vertical-demo sidebar-menu"
+            :background-color="mainColor"
+            :text-color="textColor"
+            :active-text-color="hoverColor"
             :default-active="defaultActive"
-            text-color="#FFFFFF"
-            router
-            unique-opened
             :collapse="layoutStore.sidebarCollapse"
+            router unique-opened
         >
             <el-menu-item index="/home" @click="saveRoutePath('/home')">
                 <el-icon class="svg-container" :size="20">
@@ -55,6 +54,12 @@ import {
     Setting
 } from '@element-plus/icons-vue'
 import { selectMenuTree } from '@/api/layout/sidebar'
+import variable from '@/assets/scss/variable.module.scss'
+
+// 获取 SCSS 变量
+const mainColor = variable.mainColor
+const textColor = variable.textColor
+const hoverColor = variable.hoverColor
 
 // 获取 Pinia 仓库
 const pathStore = usePathStore()
@@ -85,5 +90,7 @@ const saveRoutePath = (routePath) => {
 </script>
 
 <style lang="scss" scoped>
-
+.sidebar-menu {
+    font-weight: bold;
+}
 </style>

@@ -1,5 +1,6 @@
-@import './variables.scss';
+@import './variable';
 
+// 总样式
 html,
 body {
     height: 100%;
@@ -12,17 +13,20 @@ body {
 }
 
 #app {
+    // 页面高度
     height: 100%;
 
+    // 主体内容区样式
     .main-container {
         min-height: 100%;
-        transition: margin-left #{$side-bar-duration};
-        margin-left: $side-bar-width;
+        transition: margin-left #{$sidebar-duration};
+        margin-left: $sidebar-width;
         position: relative;
     }
 
+    // 侧边栏容器样式
     .sidebar-container {
-        transition: width #{$side-bar-duration};
+        transition: width #{$sidebar-duration};
         height: 100%;
         position: fixed;
         top: 0;
@@ -30,167 +34,18 @@ body {
         left: 0;
         z-index: 1001;
         overflow: hidden;
-        background-color: $menu-background-color;
+        background-color: $main-color;
 
+        // 侧边栏伸缩
         .horizontal-collapse-transition {
-            transition: 0s width ease-in-out,
-            0s padding-left ease-in-out,
-            0s padding-right ease-in-out;
+            transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
         }
 
-        .scrollbar-wrapper {
-            overflow-x: hidden !important;
-        }
-
-        .el-scrollbar__bar.is-vertical {
-            right: 0px;
-        }
-
-        .el-scrollbar {
-            height: 100%;
-        }
-
-        &.has-logo {
-            .el-scrollbar {
-                height: calc(100% - 50px);
-            }
-        }
-
-        .is-horizontal {
-            display: none;
-        }
-
-        a {
-            display: inline-block;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .svg-icon {
-            margin-right: 16px;
-        }
-
-        .sub-el-icon {
-            margin-right: 12px;
-            margin-left: -2px;
-        }
-
+        // 侧边栏菜单样式
         .el-menu {
             border: none;
             height: 100%;
             width: 100% !important;
-        }
-
-        .is-active > .el-submenu__title {
-            color: $sub-menu-active-text !important;
-        }
-
-        & .nest-menu .el-submenu > .el-submenu__title,
-        & .el-submenu .el-menu-item {
-            min-width: $side-bar-width !important;
-        }
-    }
-
-    .hideSidebar {
-        .sidebar-container {
-            width: 54px !important;
-        }
-
-        .main-container {
-            margin-left: 54px;
-        }
-
-        .submenu-title-noDropdown {
-            padding: 0 !important;
-            position: relative;
-
-            .el-tooltip {
-                padding: 0 !important;
-
-                .svg-icon {
-                    margin-left: 20px;
-                }
-
-                .sub-el-icon {
-                    margin-left: 20px;
-                }
-            }
-        }
-
-        .el-submenu {
-            overflow: hidden;
-
-            & > .el-submenu__title {
-                padding: 0 !important;
-
-                .svg-icon {
-                    margin-left: 20px;
-                }
-
-                .sub-el-icon {
-                    margin-left: 19px;
-                }
-
-                .el-submenu__icon-arrow {
-                    display: none;
-                }
-            }
-        }
-
-        .el-menu--collapse {
-            .el-submenu {
-                & > .el-submenu__title {
-                    & > span {
-                        height: 0;
-                        width: 0;
-                        overflow: hidden;
-                        visibility: hidden;
-                        display: inline-block;
-                    }
-                }
-            }
-        }
-    }
-
-    .el-menu--collapse .el-menu .el-submenu {
-        min-width: $side-bar-width !important;
-    }
-
-    .withoutAnimation {
-        .main-container,
-        .sidebar-container {
-            transition: none;
-        }
-    }
-}
-
-.el-menu--vertical {
-    & > .el-menu {
-        .svg-icon {
-            margin-right: 16px;
-        }
-
-        .sub-el-icon {
-            margin-right: 12px;
-            margin-left: -2px;
-        }
-    }
-
-    > .el-menu--popup {
-        max-height: 100vh;
-        overflow-y: auto;
-
-        &::-webkit-scrollbar-track-piece {
-            background: #D3DCE6;
-        }
-
-        &::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #99A9BF;
-            border-radius: 20px;
         }
     }
 }

@@ -19,7 +19,7 @@ import Avatar from './components/Avatar'
     width: 100%;
     height: 60px;
     overflow: hidden;
-    background-color: #FFFFFF;
+    background-color: $white-color;
     box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
     padding: 0 16px;
     display: flex;
@@ -38,7 +38,7 @@ import Avatar from './components/Avatar'
             display: inline-block;
             margin-left: 18px;
             font-size: 22px;
-            color: #5A5E66;
+            color: $medium-dark-gray-color;
             box-sizing: border-box;
             cursor: pointer;
         }
