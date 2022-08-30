@@ -44,17 +44,19 @@ watch(route, () => {
 </script>
 
 <style lang="scss" scoped>
+@import "src/assets/scss/variables";
+
 .no-redirect {
     color: #97A8BE;
     cursor: text;
 }
 
 .redirect {
-    color: #ffd04b;
+    color: #FFD04B;
     cursor: pointer;
 
     &:hover {
-        color: $menuBg;
+        color: $menu-background-color;
     }
 }
 </style>

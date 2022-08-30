@@ -1,13 +1,15 @@
+@import './variables.scss';
+
 #app {
     .main-container {
         min-height: 100%;
-        transition: margin-left #{$sideBarDuration};
-        margin-left: $sideBarWidth;
+        transition: margin-left #{$side-bar-duration};
+        margin-left: $side-bar-width;
         position: relative;
     }
 
     .sidebar-container {
-        transition: width #{$sideBarDuration};
+        transition: width #{$side-bar-duration};
         // width: $sideBarWidth !important;
         height: 100%;
         position: fixed;
@@ -16,8 +18,8 @@
         left: 0;
         z-index: 1001;
         overflow: hidden;
-        background-color: $menuBg;
-        // 重置 element-plus 的css
+        background-color: $menu-background-color;
+        // 重置 element-plus 的 css
         .horizontal-collapse-transition {
             transition: 0s width ease-in-out,
             0s padding-left ease-in-out,
@@ -68,12 +70,12 @@
         }
 
         .is-active > .el-submenu__title {
-            color: $subMenuActiveText !important;
+            color: $sub-menu-active-text !important;
         }
 
         & .nest-menu .el-submenu > .el-submenu__title,
         & .el-submenu .el-menu-item {
-            min-width: $sideBarWidth !important;
+            min-width: $side-bar-width !important;
         }
     }
 
@@ -139,7 +141,7 @@
     }
 
     .el-menu--collapse .el-menu .el-submenu {
-        min-width: $sideBarWidth !important;
+        min-width: $side-bar-width !important;
     }
 
     .withoutAnimation {
@@ -162,13 +164,13 @@
         }
     }
 
-    // 菜单项过长时
+    // el-menu 菜单项太多时, menu 高度最大为 100vh, 不能超出页面高度
     > .el-menu--popup {
         max-height: 100vh;
         overflow-y: auto;
 
         &::-webkit-scrollbar-track-piece {
-            background: #d3dce6;
+            background: #D3DCE6;
         }
 
         &::-webkit-scrollbar {
@@ -176,7 +178,7 @@
         }
 
         &::-webkit-scrollbar-thumb {
-            background: #99a9bf;
+            background: #99A9BF;
             border-radius: 20px;
         }
     }

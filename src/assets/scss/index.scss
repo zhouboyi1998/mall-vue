@@ -1,7 +1,6 @@
-@import './variables.scss';
 @import './mixin.scss';
+@import './variables.scss';
 @import './sidebar.scss';
-@import './element.scss';
 @import './transition.scss';
 
 html,
@@ -57,11 +56,11 @@ div:focus {
 }
 
 div#driver-popover-item .driver-popover-title {
-    color: #1890ff;
+    color: #1890FF;
 }
 
 div#driver-popover-item .driver-popover-footer .driver-next-btn {
-    background-color: #1890ff;
+    background-color: #1890FF;
     color: white;
     text-shadow: none;
     border-radius: 4px;

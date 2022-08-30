@@ -1,27 +1,27 @@
-// sidebar
-$menuText: #bfcbd9;
-$menuActiveText: #ffffff;
-$subMenuActiveText: #f4f4f5;
+// Sidebar
+$menu-text: #BFBDd9;
+$menu-active-text: #FFFFFF;
+$sub-menu-active-text: #F4F4F5;
 
-$menuBg: #304156;
-$menuHover: #263445;
+$menu-background-color: #304156;
+$menu-hover: #263445;
 
-$subMenuBg: #1f2d3d;
-$subMenuHover: #001528;
+$sub-menu-background-color: #1F2D3D;
+$sub-menu-hover: #001528;
 
-$sideBarWidth: 210px;
-$hideSideBarWidth: 67px;
-$sideBarDuration: 0.28s;
-
+$side-bar-width: 210px;
+$side-bar-hide-width: 67px;
+$side-bar-duration: 0.28s;
 
 :export {
-    menuText: $menuText;
-    menuActiveText: $menuActiveText;
-    subMenuActiveText: $subMenuActiveText;
-    menuBg: $menuBg;
-    menuHover: $menuHover;
-    subMenuBg: $subMenuBg;
-    subMenuHover: $subMenuHover;
-    sideBarWidth: $sideBarWidth;
-    hideSideBarWidth: $hideSideBarWidth;
+    menu-text: $menu-text;
+    menu-active-text: $menu-active-text;
+    sub-menu-active-text: $sub-menu-active-text;
+    menu-background-color: $menu-background-color;
+    menu-hover: $menu-hover;
+    sub-menu-background-color: $sub-menu-background-color;
+    sub-menu-hover: $sub-menu-hover;
+    side-bar-width: $side-bar-width;
+    side-bar-hide-width: $side-bar-hide-width;
+    side-bar-duration: $side-bar-duration;
 }
