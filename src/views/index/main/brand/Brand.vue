@@ -12,8 +12,12 @@
                         @input="initTable"
                     />
                 </el-col>
-                <el-button type="primary" :icon="Search" @click="initTable">搜索</el-button>
-                <el-button type="primary" :icon="Plus">添加</el-button>
+                <el-button class="option-button" :color="primaryColor" :icon="Search" @click="initTable">
+                    搜索
+                </el-button>
+                <el-button class="option-button" :color="primaryColor" :icon="Plus">
+                    添加
+                </el-button>
             </el-row>
             <el-table :data="tableData" stripe style="width: 100%">
                 <el-table-column
@@ -24,9 +28,15 @@
                     :width="item.width"
                 >
                     <template #default v-if="item.prop === 'option'">
-                        <el-button type="success" size="small" :icon="View">查看</el-button>
-                        <el-button type="warning" size="small" :icon="Edit">编辑</el-button>
-                        <el-button type="danger" size="small" :icon="Delete">删除</el-button>
+                        <el-button class="option-button" :color="successColor" size="small" :icon="View">
+                            查看
+                        </el-button>
+                        <el-button class="option-button" :color="warningColor" size="small" :icon="Edit">
+                            编辑
+                        </el-button>
+                        <el-button class="option-button" :color="dangerColor" size="small" :icon="Delete">
+                            删除
+                        </el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -50,6 +60,13 @@ import { ref } from 'vue'
 import { Search, Plus, View, Edit, Delete } from '@element-plus/icons-vue'
 import { selectBrandPage } from '@/api/goods/brand'
 import { column } from './column'
+import variable from '@/assets/style/variable.module.scss'
+
+// 获取 SCSS 变量
+const primaryColor = variable.primaryColor
+const successColor = variable.successColor
+const warningColor = variable.warningColor
+const dangerColor = variable.dangerColor
 
 // 请求参数
 const params = ref({
