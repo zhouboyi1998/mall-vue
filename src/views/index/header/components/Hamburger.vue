@@ -31,18 +31,5 @@ const handleClickHamburger = () => {
 </script>
 
 <style lang="scss" scoped>
-.hamburger-container {
-    margin-right: 16px;
-    box-sizing: border-box;
-    cursor: pointer;
-}
 
-.hamburger-icon {
-    color: $main-color;
-    cursor: pointer;
-
-    &:hover {
-        color: $hover-color;
-    }
-}
 </style>

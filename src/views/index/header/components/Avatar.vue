@@ -1,14 +1,14 @@
 <template>
-    <el-dropdown class="dropdown">
-    <span class="el-dropdown-link">
-        <el-avatar shape="circle">
-            <span class="avatar-text">🚀</span>
-        </el-avatar>
-    </span>
+    <el-dropdown class="avatar-dropdown">
+        <span>
+            <el-avatar shape="circle">
+                <span class="avatar-text">🚀</span>
+            </el-avatar>
+        </span>
         <template #dropdown>
             <el-dropdown-menu>
                 <el-dropdown-item @click="handleLogout">
-                    <span class="dropdown-item">退出系统</span>
+                    <span class="avatar-item-text">退出系统</span>
                 </el-dropdown-item>
             </el-dropdown-menu>
         </template>
@@ -45,36 +45,19 @@ const handleLogout = () => {
 </script>
 
 <style lang="scss" scoped>
-// el-avatar 背景颜色改为 none
-.el-avatar {
-    --el-avatar-background-color: none !important;
-    --el-avatar-bg-color: none !important;
-}
-
-// 头像文本
-.avatar-text {
-    font-size: 28px;
-}
-
-// 下拉菜单
-.dropdown {
-    // 设置鼠标悬停样式
-    cursor: pointer;
-}
-
 // 下拉菜单项
-.dropdown-item {
+:deep(.el-dropdown-menu__item) {
+    // 设置不换行
+    white-space: nowrap;
+}
+
+// 下拉菜单项文本
+.avatar-item-text {
     color: $text-color;
     font-weight: bold;
 
     &:hover {
         color: $hover-color;
     }
-}
-
-// 下拉框项
-:deep(.el-dropdown-menu__item) {
-    // 设置不换行
-    white-space: nowrap;
 }
 </style>

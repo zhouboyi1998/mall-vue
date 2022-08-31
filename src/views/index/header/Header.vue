@@ -1,8 +1,8 @@
 <template>
-    <div class="navbar">
+    <div class="header-container">
         <Hamburger/>
         <Breadcrumb/>
-        <div class="navbar-right">
+        <div class="avatar-container">
             <Avatar/>
         </div>
     </div>
@@ -15,33 +15,5 @@ import Avatar from './components/Avatar'
 </script>
 
 <style lang="scss" scoped>
-.navbar {
-    width: 100%;
-    height: 60px;
-    overflow: hidden;
-    background-color: $white-color;
-    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    position: relative;
 
-    .navbar-right {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        margin-right: 20px;
-
-        :deep(.navbar-item) {
-            display: inline-block;
-            margin-left: 18px;
-            font-size: 22px;
-            color: $medium-dark-gray-color;
-            box-sizing: border-box;
-            cursor: pointer;
-        }
-    }
-}
 </style>

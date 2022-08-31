@@ -1,12 +1,12 @@
 <template>
-    <el-breadcrumb separator="/">
+    <el-breadcrumb class="breadcrumb-container" separator="/">
         <el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="index">
-            <!-- 面包屑中最后一个置灰, 不能点击 -->
-            <span class="no-redirect" v-if="item.name === currentBreadcrumb.name">
+            <!-- 面包屑中当前页面置灰, 不能点击跳转 -->
+            <span class="breadcrumb-no-redirect" v-if="item.name === currentBreadcrumb.name">
                 {{ item.name }}
             </span>
-            <!-- 其它面包屑可以点击, 并且点击后跳转 -->
-            <span class="redirect" v-else @click="handleRedirect(item.path)">
+            <!-- 其它面包屑可以点击跳转 -->
+            <span class="breadcrumb-redirect" v-else @click="handleRedirect(item.path)">
                 {{ item.name }}
             </span>
         </el-breadcrumb-item>
@@ -49,19 +49,5 @@ watch(route, () => {
 </script>
 
 <style lang="scss" scoped>
-.no-redirect {
-    color: $hover-color;
-    font-weight: bold;
-    cursor: text;
-}
 
-.redirect {
-    color: $text-color;
-    font-weight: bold;
-    cursor: pointer;
-
-    &:hover {
-        color: $main-color;
-    }
-}
 </style>

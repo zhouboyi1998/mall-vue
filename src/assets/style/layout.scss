@@ -1,0 +1,153 @@
+@import "./variable";
+
+#app {
+    // 侧边栏
+    .sidebar-container {
+        transition: width #{$sidebar-duration};
+        height: 100%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1001;
+        overflow: hidden;
+        background-color: $main-color;
+
+        // 侧边栏菜单
+        .sidebar-menu {
+            border: none;
+            height: 100%;
+            width: 100% !important;
+            font-weight: bold;
+        }
+
+        // 侧边栏伸缩
+        .horizontal-collapse-transition {
+            transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+        }
+    }
+
+    // 内容区域 (包括头部和主体)
+    .content-container {
+        width: calc(100% - #{$sidebar-width});
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 9;
+        transition: all 0.28s;
+
+        &.hidden {
+            width: calc(100% - #{$sidebar-collapse-width});
+        }
+
+        // 头部导航栏
+        .header-container {
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+            background-color: $white-color;
+            box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+
+            // 汉堡伸缩按钮
+            .hamburger-container {
+                margin-right: 16px;
+                box-sizing: border-box;
+                cursor: pointer;
+
+                // 汉堡伸缩按钮图标
+                .hamburger-icon {
+                    color: $main-color;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $hover-color;
+                    }
+                }
+            }
+
+            // 面包屑跳转
+            .breadcrumb-container {
+                margin-left: 20px;
+
+                // 面包屑可点击
+                .breadcrumb-redirect {
+                    color: $text-color;
+                    font-weight: bold;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $main-color;
+                    }
+                }
+
+                // 面包屑不可点击
+                .breadcrumb-no-redirect {
+                    color: $hover-color;
+                    font-weight: bold;
+                    cursor: text;
+                }
+            }
+
+            // 导航栏头像区
+            .avatar-container {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                margin-right: 20px;
+
+                :deep(.navbar-item) {
+                    display: inline-block;
+                    margin-left: 18px;
+                    font-size: 22px;
+                    color: $medium-dark-gray-color;
+                    box-sizing: border-box;
+                    cursor: pointer;
+                }
+
+                // 下拉框
+                .avatar-dropdown {
+                    // 鼠标悬停样式
+                    cursor: pointer;
+
+                    // el-avatar 背景颜色改为 none
+                    .el-avatar {
+                        --el-avatar-background-color: none !important;
+                        --el-avatar-bg-color: none !important;
+                    }
+
+                    // 头像文本
+                    .avatar-text {
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+
+        // 主体区
+        .main-container {
+
+            // 搜索框 × 删除按钮居中
+            :deep(.el-input__suffix) {
+                align-items: center;
+            }
+
+            // 表格头部
+            .table-header {
+                padding-bottom: 16px;
+                box-sizing: border-box;
+            }
+
+            // 表格分页器
+            .table-pagination {
+                margin-top: 20px;
+            }
+        }
+    }
+}

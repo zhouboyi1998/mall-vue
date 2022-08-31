@@ -1,7 +1,7 @@
 <template>
     <el-scrollbar>
-        <el-card>
-            <el-row :gutter="20" class="header">
+        <el-card class="main-container">
+            <el-row :gutter="20" class="table-header">
                 <el-col :span="7">
                     <!-- 搜索框 -->
                     <el-input
@@ -31,6 +31,7 @@
                 </el-table-column>
             </el-table>
             <el-pagination
+                class="table-pagination"
                 layout="total, sizes, prev, pager, next, jumper"
                 background
                 :page-sizes="[10, 20, 50, 100]"
@@ -39,7 +40,6 @@
                 :total="total"
                 @current-change="handleCurrentChange"
                 @size-change="handleSizeChange"
-                class="pagination"
             />
         </el-card>
     </el-scrollbar>
@@ -99,14 +99,5 @@ const handleSizeChange = (size) => {
 </script>
 
 <style lang="scss" scoped>
-/* 表格头部 */
-.header {
-    padding-bottom: 16px;
-    box-sizing: border-box;
-}
 
-/* 分页器 */
-.pagination {
-    margin-top: 20px;
-}
 </style>
