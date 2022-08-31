@@ -1,6 +1,6 @@
 <template>
     <el-scrollbar>
-        <el-card class="main-container">
+        <el-card class="main-container" shadow="hover">
             <el-row :gutter="20" class="table-header">
                 <el-col :span="7">
                     <!-- 搜索框 -->
