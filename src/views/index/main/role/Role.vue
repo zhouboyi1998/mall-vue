@@ -27,8 +27,14 @@
                     :label="item.label"
                     :width="item.width"
                 >
-                    <template #default v-if="item.prop === 'option'">
-                        <el-button class="option-button" :color="successColor" size="small" :icon="View">
+                    <template v-slot="{ row }" v-if="item.prop === 'createTime'">
+                        {{ $filters.datetimeFormatFilter(row.createTime) }}
+                    </template>
+                    <template v-slot="{ row }" v-else-if="item.prop === 'updateTime'">
+                        {{ $filters.datetimeFormatFilter(row.updateTime) }}
+                    </template>
+                    <template #default v-else-if="item.prop === 'option'">
+                        <el-button class="option-button" :color="successColor" size="small" :icon="Document">
                             查看
                         </el-button>
                         <el-button class="option-button" :color="warningColor" size="small" :icon="Edit">
@@ -57,7 +63,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Search, Plus, View, Edit, Delete } from '@element-plus/icons-vue'
+import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
 import { selectRolePage } from '@/api/admin/role'
 import { column } from './column'
 import variable from '@/assets/style/variable.module.scss'
