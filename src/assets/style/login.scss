@@ -43,9 +43,19 @@
                 }
             }
 
-            // 密码框 view icon 显示密码图标上下居中 (element-plus 默认的 css 没有对齐)
+            // 包裹显示密码图标的组件: 上下居中 (Element-Plus 默认的 CSS 没有上下居中对齐)
             :deep(.el-input__suffix-inner) {
                 align-items: center;
+            }
+
+            // 显示密码 & 隐藏密码图标
+            .show-password-icon-container {
+                color: $medium-light-gray-color;
+                cursor: pointer;
+
+                &:hover {
+                    color: $light-gray-color;
+                }
             }
 
             // 登录按钮

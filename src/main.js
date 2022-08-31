@@ -3,9 +3,10 @@ import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import piniaPersist from 'pinia-plugin-persist'
-import 'element-plus/dist/index.css'
 import '@/assets/style/index.scss'
 import '@/router/guard'
+import 'element-plus/dist/index.css'
+import ElementPlus from 'element-plus'
 import * as ElIcons from '@element-plus/icons-vue'
 
 // 新建 Vue App
@@ -22,5 +23,5 @@ for (const name in ElIcons) {
     app.component(name, ElIcons[name])
 }
 
-// 安装 Vue-Router 插件 / Pinia 插件
-app.use(router).use(pinia).mount('#app')
+// 安装 Vue-Router 插件 / Pinia 插件 / Element-Plus 插件
+app.use(router).use(pinia).use(ElementPlus).mount('#app')
