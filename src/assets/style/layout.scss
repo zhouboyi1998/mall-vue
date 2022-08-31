@@ -74,8 +74,11 @@
             // 面包屑跳转
             .breadcrumb-container {
                 margin-left: 20px;
+                margin-top: 22px;
+                // 横向排列
+                display: flex;
 
-                // 面包屑可点击
+                // 可点击的面包屑
                 .breadcrumb-redirect {
                     color: $text-color;
                     font-weight: bold;
@@ -86,7 +89,7 @@
                     }
                 }
 
-                // 面包屑不可点击
+                // 不可点击的面包屑
                 .breadcrumb-no-redirect {
                     color: $hover-color;
                     font-weight: bold;
