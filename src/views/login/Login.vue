@@ -15,10 +15,25 @@
                     <Lock/>
                 </el-icon>
                 <el-input
-                    type="password" show-password
+                    :type="passwordInputType"
                     v-model="form.password"
                     @keyup.enter.native="handleLogin"
-                />
+                >
+                    <template #suffix>
+                        <el-icon
+                            class="show-password-icon-container"
+                            v-if="showPassword" @click="handleShowPassword(false)"
+                        >
+                            <View/>
+                        </el-icon>
+                        <el-icon
+                            class="show-password-icon-container"
+                            v-else @click="handleShowPassword(true)"
+                        >
+                            <Hide/>
+                        </el-icon>
+                    </template>
+                </el-input>
             </el-form-item>
             <el-button class="login-button" type="primary" @click="handleLogin">
                 登录
@@ -32,11 +47,27 @@ import { reactive, ref } from 'vue'
 import router from '@/router'
 import { useTokenStore } from '@/store/token'
 import { login } from '@/api/login'
-import { User, Lock } from '@element-plus/icons-vue'
+import { User, Lock, Hide, View } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
+
+// 是否显示密码
+let showPassword = ref(false)
+
+// 密码输入框类型
+let passwordInputType = ref('password')
+
+const handleShowPassword = (show) => {
+    // 根据是否显示密码, 设置密码输入框的类型
+    if (show) {
+        passwordInputType.value = 'text'
+    } else {
+        passwordInputType.value = 'password'
+    }
+    showPassword.value = show
+}
 
 // 请求参数
 const form = reactive({
