@@ -21,7 +21,7 @@
                 />
             </el-form-item>
             <el-button class="login-button" type="primary" @click="handleLogin">
-                登&nbsp;&nbsp;录
+                登录
             </el-button>
         </el-form>
     </div>
@@ -103,104 +103,5 @@ const handleLogin = () => {
 </script>
 
 <style lang="scss" scoped>
-.login-container {
-    min-height: 100%;
-    width: 100%;
-    background-color: $main-color;
-    overflow: hidden;
-
-    .login-form {
-        position: relative;
-        width: 520px;
-        max-width: 100%;
-        padding: 160px 35px 0;
-        margin: 0 auto;
-        overflow: hidden;
-
-        // 密码框 view 显示密码按钮上下居中 (element-plus 默认的 css 没有对齐)
-        :deep(.el-input__suffix-inner) {
-            align-items: center;
-        }
-
-        :deep(.el-form-item) {
-            border: 1px solid $dark-gray-color;
-            background: $black-color-point;
-            border-radius: 5px;
-            color: $dark-gray-color;
-        }
-
-        :deep(.el-input) {
-            display: inline-block;
-            height: 47px;
-            width: 85%;
-
-            input {
-                background: transparent;
-                border: 0px;
-                -webkit-appearance: none;
-                border-radius: 0px;
-                padding: 12px 5px 12px 15px;
-                color: $light-gray-color;
-                height: 47px;
-                caret-color: $white-color;
-            }
-        }
-
-        .login-button {
-            width: 100%;
-            box-sizing: border-box;
-            font-weight: bold;
-        }
-    }
-
-    .tips {
-        font-size: 16px;
-        line-height: 28px;
-        color: $white-color;
-        margin-bottom: 10px;
-
-        span {
-            &:first-of-type {
-                margin-right: 16px;
-            }
-        }
-    }
-
-    .icon-container {
-        padding: 6px 5px 6px 15px;
-        color: $medium-light-gray-color;
-        vertical-align: middle;
-        display: inline-block;
-    }
-
-    .title-container {
-        position: relative;
-
-        .title {
-            font-size: 26px;
-            color: $light-gray-color;
-            margin: 0px auto 40px auto;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        :deep(.lang-select) {
-            position: absolute;
-            top: 4px;
-            right: 0;
-            background-color: $white-color;
-            font-size: 22px;
-            padding: 4px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    }
-
-    .show-pwd {
-        font-size: 16px;
-        color: $medium-light-gray-color;
-        cursor: pointer;
-        user-select: none;
-    }
-}
+@import "src/assets/style/login";
 </style>

@@ -18,9 +18,7 @@ module.exports = {
             // SASS 配置
             sass: {
                 // 全局引入样式文件
-                additionalData: `
-                    @import '@/assets/scss/variable.scss';
-                `
+                additionalData: `@import "@/assets/style/variable.scss";`
             }
         }
     },

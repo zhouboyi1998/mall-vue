@@ -10,7 +10,7 @@
             router unique-opened
         >
             <el-menu-item index="/home" @click="saveRoutePath('/home')">
-                <el-icon class="svg-container" :size="20">
+                <el-icon :size="20">
                     <House/>
                 </el-icon>
                 <span>系统首页</span>
@@ -21,7 +21,7 @@
                 :index="item.menuPath"
             >
                 <template #title>
-                    <el-icon class="svg-container" :size="20">
+                    <el-icon :size="20">
                         <component :is="item.menuIcon"/>
                     </el-icon>
                     <span>{{ item.menuTitle }}</span>
@@ -32,7 +32,7 @@
                     :index="child.menuPath"
                     @click="saveRoutePath(child.menuPath)"
                 >
-                    <el-icon class="svg-container" :size="20">
+                    <el-icon :size="20">
                         <component :is="child.menuIcon"/>
                     </el-icon>
                     <span>{{ child.menuTitle }}</span>
@@ -54,7 +54,7 @@ import {
     Setting
 } from '@element-plus/icons-vue'
 import { selectMenuTree } from '@/api/layout/sidebar'
-import variable from '@/assets/scss/variable.module.scss'
+import variable from '@/assets/style/variable.module.scss'
 
 // 获取 SCSS 变量
 const mainColor = variable.mainColor
@@ -90,7 +90,5 @@ const saveRoutePath = (routePath) => {
 </script>
 
 <style lang="scss" scoped>
-.sidebar-menu {
-    font-weight: bold;
-}
+
 </style>
