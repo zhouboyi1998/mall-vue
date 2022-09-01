@@ -27,7 +27,18 @@
                     :label="item.label"
                     :width="item.width"
                 >
-                    <template v-slot="{ row }" v-if="item.prop === 'createTime'">
+                    <template v-slot="{ row }" v-if="item.prop === 'categoryStatus'">
+                        <el-switch
+                            class="ml-2"
+                            v-model="row.categoryStatus"
+                            :active-value="1"
+                            :inactive-value="0"
+                            :active-color="successColor"
+                            :inactive-color="dangerColor"
+                            @change="changeStatus(row)"
+                        />
+                    </template>
+                    <template v-slot="{ row }" v-else-if="item.prop === 'createTime'">
                         {{ $filters.datetimeFormatFilter(row.createTime) }}
                     </template>
                     <template v-slot="{ row }" v-else-if="item.prop === 'updateTime'">
@@ -64,9 +75,11 @@
 <script setup>
 import { ref } from 'vue'
 import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
-import { selectCategoryPage } from '@/api/goods/category'
+import { ElMessage } from 'element-plus'
+import { selectCategoryPage, updateCategory } from '@/api/goods/category'
 import { column } from './column'
 import variable from '@/assets/style/variable.module.scss'
+import constant from '@/components/Constant'
 
 // 获取 SCSS 变量
 const primaryColor = variable.primaryColor
@@ -118,6 +131,21 @@ const handleSizeChange = (size) => {
     params.value.size = size
     // 发起请求
     initTable()
+}
+
+// 修改状态
+const changeStatus = async (row) => {
+    let category = { id: row.id, categoryStatus: row.categoryStatus }
+    let result = await updateCategory(category)
+    if (result.status === constant.HttpStatus.OK) {
+        if (row.categoryStatus === 1) {
+            ElMessage.success({ message: '启用成功', center: true })
+        } else if (row.categoryStatus === 0) {
+            ElMessage.success({ message: '禁用成功', center: true })
+        }
+    } else {
+        ElMessage.error({ message: '状态修改失败', center: true })
+    }
 }
 </script>
 

@@ -62,7 +62,7 @@ instance.interceptors.response.use(response => {
                 sessionStorage.clear()
                 // 跳转到登录页
                 router.replace('/login')
-                ElMessage.warning('登录已过期 / 请重新登录')
+                ElMessage.warning({ message: '登录已过期 / 请重新登录', center: true })
             })
     }
     return Promise.reject(new Error(error))
