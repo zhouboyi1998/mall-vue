@@ -2,6 +2,10 @@ const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
+const host = process.env.VUE_APP_HOST
+const port = process.env.VUE_APP_PORT
+const target = process.env.VUE_APP_REQUEST_BASE_URL_TARGET
+
 module.exports = {
     // Webpack 配置
     configureWebpack: config => {
@@ -24,8 +28,8 @@ module.exports = {
     },
     // 开发配置
     devServer: {
-        host: '127.0.0.1',
-        port: 18001,
+        host: `${ host }`,
+        port: `${ port }`,
         open: true,
         proxy: {
             // Vue 请求路径中包含 /api 时, 自动代理请求到服务端地址
@@ -33,7 +37,7 @@ module.exports = {
                 ws: false,
                 https: false,
                 // 服务端 IP 地址
-                target: 'http://127.0.0.1:18071',
+                target: `${ target }`,
                 // 将前端 IP 地址转换为服务端 IP 地址
                 changeOrigin: true,
                 // 删除用于匹配规则的 /api 路径

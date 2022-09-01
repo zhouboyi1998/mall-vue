@@ -14,8 +14,8 @@ const layoutStore = useLayoutStore()
 
 // 新建 axios 实例
 const instance = axios.create({
-    baseURL: '/api',
-    timeout: 10000
+    baseURL: process.env.VUE_APP_REQUEST_BASE_URL,
+    timeout: process.env.VUE_APP_REQUEST_TIMEOUT
 })
 
 // axios 请求拦截器
