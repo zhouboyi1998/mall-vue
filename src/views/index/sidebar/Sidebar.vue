@@ -5,7 +5,7 @@
             :background-color="mainColor"
             :text-color="textColor"
             :active-text-color="hoverColor"
-            :default-active="defaultActive"
+            :default-active="$route.path"
             :collapse="layoutStore.sidebarCollapse"
             router unique-opened
         >
@@ -76,11 +76,6 @@ const initMenuTree = async () => {
 
 // 发送初始化请求
 initMenuTree()
-
-// 指定当前的路径, 如果有保存当前路径, 直接使用, 如果没有保存, 使用默认路径 /home
-const defaultActive = ref(
-    pathStore.routePath || sessionStorage.getItem('routePath') || '/home'
-)
 
 // 保存当前路径
 const saveRoutePath = (routePath) => {
