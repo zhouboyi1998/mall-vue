@@ -7,3 +7,11 @@ export const selectAdminPage = (params) => {
         data: params.admin
     })
 }
+
+export const updateAdmin = (admin) => {
+    return instance({
+        url: '/admin/admin/update',
+        method: 'put',
+        data: admin
+    })
+}

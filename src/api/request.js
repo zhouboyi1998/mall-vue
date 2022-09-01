@@ -4,6 +4,7 @@ import { usePathStore } from '@/store/path'
 import { useLayoutStore } from '@/store/layout'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
+import constant from '@/components/Constant'
 import { login } from '@/api/login'
 
 // 获取 Pinia 仓库
@@ -31,7 +32,7 @@ instance.interceptors.response.use(response => {
     return response
 }, async error => {
     // Access Token 和 Refresh Token 都过期, 清空所有状态, 跳转至登录页
-    if (error.response.status === 401) {
+    if (error.response.status === constant.HttpStatus.UNAUTHORIZED) {
         // 请求参数
         const params = new URLSearchParams()
         // 刷新令牌模式
