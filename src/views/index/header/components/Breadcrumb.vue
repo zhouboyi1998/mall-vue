@@ -19,6 +19,7 @@
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
+// 获取 Vue 路由
 const route = useRoute()
 const router = useRouter()
 
@@ -37,8 +38,9 @@ const initBreadcrumbList = () => {
 }
 
 // 点击面包屑时, 切换路径
-const handleRedirect = (path) => {
-    router.push(path)
+const handleRedirect = (routePath) => {
+    // 将 Path 保存到 Vue Router 中
+    router.push(routePath)
 }
 
 // 每当打开新的路由时, 执行初始化面包屑列表的操作
