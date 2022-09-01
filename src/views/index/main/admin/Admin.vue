@@ -27,7 +27,18 @@
                     :label="item.label"
                     :width="item.width"
                 >
-                    <template v-slot="{ row }" v-if="item.prop === 'createTime'">
+                    <template v-slot="{ row }" v-if="item.prop === 'adminStatus'">
+                        <el-switch
+                            class="ml-2"
+                            v-model="row.adminStatus"
+                            :active-value="1"
+                            :inactive-value="0"
+                            :active-color="successColor"
+                            :inactive-color="dangerColor"
+                            @change="changeStatus(row)"
+                        />
+                    </template>
+                    <template v-slot="{ row }" v-else-if="item.prop === 'createTime'">
                         {{ $filters.datetimeFormatFilter(row.createTime) }}
                     </template>
                     <template v-slot="{ row }" v-else-if="item.prop === 'updateTime'">
@@ -64,9 +75,11 @@
 <script setup>
 import { ref } from 'vue'
 import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
-import { selectAdminPage } from '@/api/admin/admin'
+import { ElMessage } from 'element-plus'
+import { selectAdminPage, updateAdmin } from '@/api/admin/admin'
 import { column } from './column'
 import variable from '@/assets/style/variable.module.scss'
+import constant from '@/components/Constant'
 
 // 获取 SCSS 变量
 const primaryColor = variable.primaryColor
@@ -118,6 +131,21 @@ const handleSizeChange = (size) => {
     params.value.size = size
     // 发起请求
     initTable()
+}
+
+// 修改状态
+const changeStatus = async (row) => {
+    let admin = { id: row.id, adminStatus: row.adminStatus }
+    let result = await updateAdmin(admin)
+    if (result.status === constant.HttpStatus.OK) {
+        if (row.adminStatus === 1) {
+            ElMessage({ message: '启用成功', type: 'success', center: true })
+        } else if (row.adminStatus === 0) {
+            ElMessage({ message: '禁用成功', type: 'success', center: true })
+        }
+    } else {
+        ElMessage.error({ message: '状态修改失败', type: 'error', center: true })
+    }
 }
 </script>
 

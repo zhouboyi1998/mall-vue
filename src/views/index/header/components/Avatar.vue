@@ -40,7 +40,7 @@ const handleLogout = () => {
     // 跳转到登录页
     router.replace('/login')
     // 退出成功提示
-    ElMessage({ message: '退出成功', type: 'success' })
+    ElMessage({ message: '退出成功', type: 'success', center: true })
 }
 </script>
 
