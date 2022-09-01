@@ -139,12 +139,12 @@ const changeStatus = async (row) => {
     let result = await updateAdmin(admin)
     if (result.status === constant.HttpStatus.OK) {
         if (row.adminStatus === 1) {
-            ElMessage({ message: '启用成功', type: 'success', center: true })
+            ElMessage.success({ message: '启用成功', center: true })
         } else if (row.adminStatus === 0) {
-            ElMessage({ message: '禁用成功', type: 'success', center: true })
+            ElMessage.success({ message: '禁用成功', center: true })
         }
     } else {
-        ElMessage.error({ message: '状态修改失败', type: 'error', center: true })
+        ElMessage.error({ message: '状态修改失败', center: true })
     }
 }
 </script>

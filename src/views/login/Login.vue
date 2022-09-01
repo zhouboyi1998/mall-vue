@@ -121,13 +121,13 @@ const handleLogin = () => {
                     })
                     // 跳转到首页
                     router.replace('/')
-                    ElMessage({ message: '登录成功', type: 'success', center: true })
+                    ElMessage.success({ message: '登录成功', center: true })
                 })
                 .catch(error => {
-                    ElMessage({ message: '登录失败', type: 'error', center: true })
+                    ElMessage.error({ message: '登录失败', center: true })
                 })
         } else {
-            ElMessage({ message: '请输入账号和密码', type: 'error', center: true })
+            ElMessage.error({ message: '请输入账号和密码', center: true })
         }
     })
 }
