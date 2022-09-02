@@ -4,6 +4,7 @@
         <Breadcrumb/>
         <div class="header-right-container">
             <ScreenFull/>
+            <Driver/>
             <Avatar/>
         </div>
     </div>
@@ -13,6 +14,7 @@
 import Hamburger from './components/Hamburger'
 import Breadcrumb from './components/Breadcrumb'
 import Avatar from './components/Avatar'
+import Driver from './components/Driver'
 import ScreenFull from './components/ScreenFull'
 </script>
 
