@@ -5718,6 +5718,11 @@ schema-utils@^4.0.0:
     ajv-formats "^2.1.1"
     ajv-keywords "^5.0.0"
 
+screenfull@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/screenfull/-/screenfull-5.1.0.tgz"
+  integrity sha512-dYaNuOdzr+kc6J6CFcBrzkLCfyGcMg+gWkJ8us93IQ7y1cevhQAugFsaCdMHb6lw8KV3xPzSxzH7zM1dQap9mA==
+
 scss-tokenizer@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npmmirror.com/scss-tokenizer/-/scss-tokenizer-0.3.0.tgz"

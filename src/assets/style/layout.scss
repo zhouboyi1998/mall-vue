@@ -54,21 +54,21 @@
             box-sizing: border-box;
             position: relative;
 
+            // 汉堡伸缩按钮图标
+            .header-icon {
+                color: $main-color;
+                cursor: pointer;
+
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+
             // 汉堡伸缩按钮
             .hamburger-container {
                 margin-right: 16px;
                 box-sizing: border-box;
                 cursor: pointer;
-
-                // 汉堡伸缩按钮图标
-                .hamburger-icon {
-                    color: $main-color;
-                    cursor: pointer;
-
-                    &:hover {
-                        color: $hover-color;
-                    }
-                }
             }
 
             // 面包屑跳转
@@ -97,8 +97,8 @@
                 }
             }
 
-            // 导航栏头像区
-            .avatar-container {
+            // 头部导航栏右侧区域
+            .header-right-container {
                 flex: 1;
                 display: flex;
                 align-items: center;
@@ -114,7 +114,7 @@
                     cursor: pointer;
                 }
 
-                // 下拉框
+                // 头像下拉框
                 .avatar-dropdown {
                     // 鼠标悬停样式
                     cursor: pointer;
@@ -127,8 +127,13 @@
 
                     // 头像文本
                     .avatar-text {
-                        font-size: 28px;
+                        font-size: $header-component-size;
                     }
+                }
+
+                // 全屏按钮
+                .screen-full-container {
+                    margin-right: 10px;
                 }
             }
         }
