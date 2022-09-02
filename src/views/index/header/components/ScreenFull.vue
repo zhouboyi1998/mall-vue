@@ -1,5 +1,5 @@
 <template>
-    <div class="screen-full-container" @click="handleClickScreenFull">
+    <div id="screenfull" class="screen-full-container" @click="handleClickScreenFull">
         <el-icon class="header-icon" :size="headerComponentSize">
             <component :is="Crop" v-if="isScreenFull"/>
             <component :is="FullScreen" v-else/>

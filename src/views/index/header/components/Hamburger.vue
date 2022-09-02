@@ -1,5 +1,5 @@
 <template>
-    <div class="hamburger-container" @click="handleClickHamburger">
+    <div id="hamburger" class="hamburger-container" @click="handleClickHamburger">
         <el-icon class="header-icon" :size="headerComponentSize">
             <component :is="Expand" v-if="layoutStore.sidebarCollapse"/>
             <component :is="Fold" v-else/>
