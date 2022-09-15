@@ -28,19 +28,25 @@ module.exports = {
     },
     // 开发配置
     devServer: {
+        // 当前项目 IP
         host: `${ host }`,
+        // 当前项目 Port
         port: `${ port }`,
+        // 是否自动打开浏览器
         open: true,
+        // 代理规则
         proxy: {
-            // Vue 请求路径中包含 /api 时, 自动代理请求到服务端地址
+            // 请求路径以 /api 开头时, 将请求代理到 "目标地址"
             '/api': {
+                // 是否代理 WebSocket
                 ws: false,
+                // 是否代理 HTTPS
                 https: false,
-                // 服务端 IP 地址
+                // 目标地址 (服务端地址)
                 target: `${ target }`,
-                // 将前端 IP 地址转换为服务端 IP 地址
+                // 是否将请求头中的 "当前项目地址" 替换成 "目标地址"
                 changeOrigin: true,
-                // 删除用于匹配规则的 /api 路径
+                // 去除用于代理规则匹配的路径 /api
                 pathRewrite: {
                     ['^/api']: ''
                 }
