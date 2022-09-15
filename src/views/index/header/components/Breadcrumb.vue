@@ -18,10 +18,14 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { usePathStore } from '@/store/path'
 
 // 获取 Vue 路由
 const route = useRoute()
 const router = useRouter()
+
+// 获取 Pinia 仓库
+const pathStore = usePathStore()
 
 // 面包屑列表
 const breadcrumbList = ref([])
@@ -41,6 +45,8 @@ const initBreadcrumbList = () => {
 const handleRedirect = (routePath) => {
     // 将 Path 保存到 Vue Router 中
     router.push(routePath)
+    // 将 Path 保存到 Pinia Store 中
+    pathStore.$patch({ routePath: routePath })
 }
 
 // 每当打开新的路由时, 执行初始化面包屑列表的操作

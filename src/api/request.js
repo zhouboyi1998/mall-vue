@@ -31,14 +31,14 @@ instance.interceptors.request.use(request => {
 instance.interceptors.response.use(response => {
     return response
 }, async error => {
-    // Access Token 和 Refresh Token 都过期, 清空所有状态, 跳转至登录页
+    // Access Token 过期
     if (error.response.status === constant.HttpStatus.UNAUTHORIZED) {
         // 请求参数
         const params = new URLSearchParams()
         // 刷新令牌模式
         params.append('grant_type', 'refresh_token')
         params.append('refresh_token', tokenStore.refreshToken)
-        // 发起请求, 刷新 Access Token 过期时间
+        // 发起请求, 使用 Refresh Token 刷新 Access Token 过期时间
         await login(params)
             .then(res => {
                 // 将 token 保存到 Pinia Store 中
@@ -52,6 +52,7 @@ instance.interceptors.response.use(response => {
                 })
             })
             .catch(error => {
+                // Refresh Token 过期, 刷新失败, 清空所有状态, 跳转至登录页
                 // 重置 Pinia Store
                 tokenStore.$reset()
                 pathStore.$reset()

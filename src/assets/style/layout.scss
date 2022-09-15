@@ -78,7 +78,7 @@
                 // 横向排列
                 display: flex;
 
-                // 可点击的面包屑
+                // 可点击跳转的面包屑
                 .breadcrumb-redirect {
                     color: $text-color;
                     font-weight: bold;
@@ -93,7 +93,7 @@
                 .breadcrumb-no-redirect {
                     color: $hover-color;
                     font-weight: bold;
-                    cursor: text;
+                    cursor: default;
                 }
             }
 
