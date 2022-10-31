@@ -19,7 +19,7 @@ export const column = [
         width: 80
     },
     {
-        prop: 'categoryStatus',
+        prop: 'status',
         label: '状态',
         width: 80
     },
