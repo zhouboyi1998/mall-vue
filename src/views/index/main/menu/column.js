@@ -27,7 +27,7 @@ export const column = [
         label: '排序'
     },
     {
-        prop: 'menuStatus',
+        prop: 'status',
         label: '状态',
         width: 80
     },

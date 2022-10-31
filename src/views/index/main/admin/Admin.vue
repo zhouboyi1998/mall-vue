@@ -27,10 +27,10 @@
                     :label="item.label"
                     :width="item.width"
                 >
-                    <template v-slot="{ row }" v-if="item.prop === 'adminStatus'">
+                    <template v-slot="{ row }" v-if="item.prop === 'status'">
                         <el-switch
                             class="ml-2"
-                            v-model="row.adminStatus"
+                            v-model="row.status"
                             :active-value="1"
                             :inactive-value="0"
                             :active-color="successColor"
@@ -135,12 +135,12 @@ const handleSizeChange = (size) => {
 
 // 修改状态
 const changeStatus = async (row) => {
-    let admin = { id: row.id, adminStatus: row.adminStatus }
+    let admin = { id: row.id, status: row.status }
     let result = await updateAdmin(admin)
     if (result.status === constant.HttpStatus.OK) {
-        if (row.adminStatus === 1) {
+        if (row.status === 1) {
             ElMessage.success({ message: '启用成功', center: true })
-        } else if (row.adminStatus === 0) {
+        } else if (row.status === 0) {
             ElMessage.success({ message: '禁用成功', center: true })
         }
     } else {

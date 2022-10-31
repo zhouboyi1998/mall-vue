@@ -2,7 +2,7 @@ export const column = [
     {
         prop: 'id',
         label: 'ID',
-        width: 80
+        width: 180
     },
     {
         prop: 'brandName',
@@ -14,7 +14,7 @@ export const column = [
         width: 80
     },
     {
-        prop: 'brandStatus',
+        prop: 'status',
         label: '状态',
         width: 80
     },
