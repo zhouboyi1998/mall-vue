@@ -76,7 +76,7 @@
 import { ref } from 'vue'
 import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import { selectRolePage, updateRole } from '@/api/admin/role'
+import { selectRolePage, updateRole } from '@/api/user/role'
 import { column } from './column'
 import variable from '@/assets/style/variable.module.scss'
 import constant from '@/components/Constant'

@@ -1,8 +1,8 @@
-import instance from "@/api/request"
+import instance from '@/api/request'
 
 export const selectMenuTree = () => {
     return instance({
-        url: '/admin/menu/listMenuTree',
+        url: '/user/menu/listMenuTree',
         method: 'get'
     })
 }
