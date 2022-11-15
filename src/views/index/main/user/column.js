@@ -5,8 +5,8 @@ export const column = [
         width: 180
     },
     {
-        prop: 'adminName',
-        label: '管理员名称'
+        prop: 'username',
+        label: '用户名称'
     },
     {
         prop: 'status',

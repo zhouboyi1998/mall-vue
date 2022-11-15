@@ -33,14 +33,14 @@ const routes = [
                 component: () => import('../views/index/main/order/Order')
             },
             {
+                path: '/member',
+                name: 'Member',
+                component: () => import('../views/index/main/member/Member')
+            },
+            {
                 path: '/user',
                 name: 'User',
                 component: () => import('../views/index/main/user/User')
-            },
-            {
-                path: '/admin',
-                name: 'Admin',
-                component: () => import('../views/index/main/admin/Admin')
             },
             {
                 path: '/role',
