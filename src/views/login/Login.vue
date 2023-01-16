@@ -17,27 +17,22 @@
                 <el-input
                     :type="passwordInputType"
                     v-model="form.password"
-                    @keyup.enter.native="handleLogin"
-                >
+                    @keyup.enter.native="handleLogin">
                     <template #suffix>
                         <el-icon
                             class="show-password-icon-container"
-                            v-if="showPassword" @click="handleShowPassword(false)"
-                        >
+                            v-if="showPassword" @click="handleShowPassword(false)">
                             <View/>
                         </el-icon>
                         <el-icon
                             class="show-password-icon-container"
-                            v-else @click="handleShowPassword(true)"
-                        >
+                            v-else @click="handleShowPassword(true)">
                             <Hide/>
                         </el-icon>
                     </template>
                 </el-input>
             </el-form-item>
-            <el-button class="login-button" type="primary" @click="handleLogin">
-                登录
-            </el-button>
+            <el-button class="login-button" type="primary" @click="handleLogin">登录</el-button>
         </el-form>
     </div>
 </template>
