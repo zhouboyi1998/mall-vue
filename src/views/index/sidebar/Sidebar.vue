@@ -7,8 +7,7 @@
             :active-text-color="hoverColor"
             :default-active="$route.path"
             :collapse="layoutStore.sidebarCollapse"
-            router unique-opened
-        >
+            router unique-opened>
             <el-menu-item index="/home" @click="saveRoutePath('/home')">
                 <el-icon :size="20">
                     <House/>
@@ -18,8 +17,7 @@
             <el-sub-menu
                 v-for="item in menuTree"
                 :key="item.id"
-                :index="item.menuPath"
-            >
+                :index="item.menuPath">
                 <template #title>
                     <el-icon :size="20">
                         <component :is="item.menuIcon"/>
@@ -30,8 +28,7 @@
                     v-for="child in item.children"
                     :key="child.id"
                     :index="child.menuPath"
-                    @click="saveRoutePath(child.menuPath)"
-                >
+                    @click="saveRoutePath(child.menuPath)">
                     <el-icon :size="20">
                         <component :is="child.menuIcon"/>
                     </el-icon>

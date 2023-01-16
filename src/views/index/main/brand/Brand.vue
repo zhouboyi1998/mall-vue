@@ -12,12 +12,8 @@
                         @input="initTable"
                     />
                 </el-col>
-                <el-button class="option-button" :color="primaryColor" :icon="Search" @click="initTable">
-                    搜索
-                </el-button>
-                <el-button class="option-button" :color="primaryColor" :icon="Plus">
-                    添加
-                </el-button>
+                <el-button class="option-button" :color="primaryColor" :icon="Search" @click="initTable">搜索</el-button>
+                <el-button class="option-button" :color="primaryColor" :icon="Plus">添加</el-button>
             </el-row>
             <el-table :data="tableData" stripe style="width: 100%">
                 <el-table-column
@@ -25,8 +21,7 @@
                     :key="index"
                     :prop="item.prop"
                     :label="item.label"
-                    :width="item.width"
-                >
+                    :width="item.width">
                     <template v-slot="{ row }" v-if="item.prop === 'status'">
                         <el-switch
                             class="ml-2"
@@ -45,15 +40,9 @@
                         {{ $filters.datetimeFormatFilter(row.updateTime) }}
                     </template>
                     <template #default v-else-if="item.prop === 'option'">
-                        <el-button class="option-button" :color="successColor" size="small" :icon="Document">
-                            查看
-                        </el-button>
-                        <el-button class="option-button" :color="warningColor" size="small" :icon="Edit">
-                            编辑
-                        </el-button>
-                        <el-button class="option-button" :color="dangerColor" size="small" :icon="Delete">
-                            删除
-                        </el-button>
+                        <el-button class="option-button" :color="successColor" size="small" :icon="Document">查看</el-button>
+                        <el-button class="option-button" :color="warningColor" size="small" :icon="Edit">编辑</el-button>
+                        <el-button class="option-button" :color="dangerColor" size="small" :icon="Delete">删除</el-button>
                     </template>
                 </el-table-column>
             </el-table>
