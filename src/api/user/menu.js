@@ -17,3 +17,11 @@ export const updateMenu = (menu) => {
         data: menu
     })
 }
+
+// 获取菜单树
+export const selectMenuTree = () => {
+    return instance({
+        url: '/user/menu/tree',
+        method: 'get'
+    })
+}

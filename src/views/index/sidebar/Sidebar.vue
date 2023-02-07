@@ -50,7 +50,7 @@ import {
     User, UserFilled, Flag,
     Setting
 } from '@element-plus/icons-vue'
-import { selectMenuTree } from '@/api/layout/sidebar'
+import { selectMenuTree } from '@/api/user/menu'
 import variable from '@/assets/style/variable.module.scss'
 
 // 获取 SCSS 变量
