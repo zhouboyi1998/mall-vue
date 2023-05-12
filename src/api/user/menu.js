@@ -3,7 +3,7 @@ import instance from '@/api/request'
 // 分页查询菜单
 export const selectMenuPage = (params) => {
     return instance({
-        url: '/user/menu/page/' + params.current + '/' + params.size,
+        url: '/mall-user/menu/page/' + params.current + '/' + params.size,
         method: 'post',
         data: params.menu
     })
@@ -12,7 +12,7 @@ export const selectMenuPage = (params) => {
 // 更新单个菜单
 export const updateMenu = (menu) => {
     return instance({
-        url: '/user/menu/update',
+        url: '/mall-user/menu/update',
         method: 'put',
         data: menu
     })
@@ -21,7 +21,7 @@ export const updateMenu = (menu) => {
 // 获取菜单树
 export const selectMenuTree = () => {
     return instance({
-        url: '/user/menu/tree',
+        url: '/mall-user/menu/tree',
         method: 'get'
     })
 }

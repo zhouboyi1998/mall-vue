@@ -21,8 +21,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { usePathStore } from '@/store/path'
 
 // 获取 Vue 路由
-const route = useRoute()
-const router = useRouter()
+const Route = useRoute()
+const Router = useRouter()
 
 // 获取 Pinia 仓库
 const pathStore = usePathStore()
@@ -36,21 +36,21 @@ const currentBreadcrumb = ref()
 // 初始化面包屑列表
 const initBreadcrumbList = () => {
     // 面包屑列表为 Index 路由下的所有子路由
-    breadcrumbList.value = route.matched[0].children
+    breadcrumbList.value = Route.matched[0].children
     // 当前面包屑为当前选中的路由
-    currentBreadcrumb.value = route.matched[1]
+    currentBreadcrumb.value = Route.matched[1]
 }
 
 // 点击面包屑时, 切换路径
 const handleRedirect = (routePath) => {
     // 将 Path 保存到 Vue Router 中
-    router.push(routePath)
+    Router.push(routePath)
     // 将 Path 保存到 Pinia Store 中
     pathStore.$patch({ routePath: routePath })
 }
 
 // 每当打开新的路由时, 执行初始化面包屑列表的操作
-watch(route, () => {
+watch(Route, () => {
     initBreadcrumbList()
 }, {
     deep: true,

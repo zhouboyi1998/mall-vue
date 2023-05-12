@@ -3,7 +3,7 @@ import instance from '@/api/request'
 // 分页查询分类
 export const selectCategoryPage = (params) => {
     return instance({
-        url: '/goods/category/page/' + params.current + '/' + params.size,
+        url: '/mall-goods/category/page/' + params.current + '/' + params.size,
         method: 'post',
         data: params.category
     })
@@ -12,7 +12,7 @@ export const selectCategoryPage = (params) => {
 // 更新单个分类
 export const updateCategory = (category) => {
     return instance({
-        url: '/goods/category/update',
+        url: '/mall-goods/category/update',
         method: 'put',
         data: category
     })

@@ -13,7 +13,7 @@ export const login = (params) => {
     params.append('client_secret', process.env.VUE_APP_CLIENT_SECRET)
 
     return instance({
-        url: '/security/oauth/token',
+        url: '/mall-security/oauth/token',
         method: 'post',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
