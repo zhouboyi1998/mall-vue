@@ -13,42 +13,42 @@ const routes = [
                 component: () => import('../views/index/main/home/Home')
             },
             {
-                path: '/goods/category',
+                path: '/mall-goods/category',
                 name: 'Category',
                 component: () => import('../views/index/main/category/Category')
             },
             {
-                path: '/goods/brand',
+                path: '/mall-goods/brand',
                 name: 'Brand',
                 component: () => import('../views/index/main/brand/Brand')
             },
             {
-                path: '/goods/goods',
+                path: '/mall-goods/goods',
                 name: 'Goods',
                 component: () => import('../views/index/main/goods/Goods')
             },
             {
-                path: '/order/order',
+                path: '/mall-order/order',
                 name: 'Order',
                 component: () => import('../views/index/main/order/Order')
             },
             {
-                path: '/member/member',
+                path: '/mall-member/member',
                 name: 'Member',
                 component: () => import('../views/index/main/member/Member')
             },
             {
-                path: '/user/user',
+                path: '/mall-user/user',
                 name: 'User',
                 component: () => import('../views/index/main/user/User')
             },
             {
-                path: '/user/role',
+                path: '/mall-user/role',
                 name: 'Role',
                 component: () => import('../views/index/main/role/Role')
             },
             {
-                path: '/user/menu',
+                path: '/mall-user/menu',
                 name: 'Menu',
                 component: () => import('../views/index/main/menu/Menu')
             }
