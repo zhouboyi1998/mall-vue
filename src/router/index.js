@@ -51,6 +51,16 @@ const routes = [
                 path: '/mall-user/menu',
                 name: 'Menu',
                 component: () => import('../views/index/main/menu/Menu')
+            },
+            {
+                path: '/mall-system/area',
+                name: 'Area',
+                component: () => import('../views/index/main/area/Area')
+            },
+            {
+                path: '/mall-system/theme',
+                name: 'Theme',
+                component: () => import('../views/index/main/theme/Theme')
             }
         ]
     },

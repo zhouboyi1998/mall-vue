@@ -2,13 +2,16 @@
     <el-scrollbar>
         <el-menu
             class="el-menu-vertical-demo sidebar-menu"
-            :background-color="mainColor"
+            :background-color="basicColor"
             :text-color="textColor"
             :active-text-color="hoverColor"
             :default-active="$route.path"
             :collapse="layoutStore.sidebarCollapse"
             router unique-opened>
-            <el-menu-item index="/home" @click="saveRoutePath('/home')">
+            <el-menu-item
+                class="menu-item"
+                index="/home"
+                @click="saveRoutePath('/home')">
                 <el-icon :size="20">
                     <House/>
                 </el-icon>
@@ -25,6 +28,7 @@
                     <span>{{ item.menuTitle }}</span>
                 </template>
                 <el-menu-item
+                    class="menu-item"
                     v-for="child in item.children"
                     :key="child.id"
                     :index="child.menuPath"
@@ -54,7 +58,7 @@ import { selectMenuTree } from '@/api/user/menu'
 import variable from '@/assets/style/variable.module.scss'
 
 // 获取 SCSS 变量
-const mainColor = variable.mainColor
+const basicColor = variable.basicColor
 const textColor = variable.textColor
 const hoverColor = variable.hoverColor
 

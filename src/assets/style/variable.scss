@@ -1,10 +1,10 @@
-$main-color: #304156;
+$basic-color: var(--basic);
 $medium-light-color: #263445;
 $medium-dark-color: #1F2D3D;
 $dark-color: #001528;
 
-$text-color: #97A8BE;
-$hover-color: #FFD04B;
+$text-color: #D3DCE6;
+$hover-color: var(--hover);
 
 $primary-color: #409EFF;
 $success-color: #00AF9B;
