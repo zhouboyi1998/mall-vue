@@ -11,7 +11,7 @@
         left: 0;
         z-index: 1001;
         overflow: hidden;
-        background-color: $main-color;
+        background-color: $basic-color;
 
         // 侧边栏菜单
         .sidebar-menu {
@@ -19,6 +19,14 @@
             height: 100%;
             width: 100% !important;
             font-weight: bold;
+
+            // 侧边栏菜单项
+            .menu-item {
+                &:hover {
+                    background-color: $basic-color;
+                    color: $hover-color;
+                }
+            }
         }
 
         // 侧边栏伸缩
@@ -56,7 +64,7 @@
 
             // 汉堡伸缩按钮图标
             .header-icon {
-                color: $main-color;
+                color: $basic-color;
                 cursor: pointer;
 
                 &:hover {
@@ -85,7 +93,7 @@
                     cursor: pointer;
 
                     &:hover {
-                        color: $main-color;
+                        color: $basic-color;
                     }
                 }
 
@@ -131,6 +139,23 @@
                     }
                 }
 
+                // 主题下拉框
+                .theme-dropdown {
+                    // 鼠标悬停样式
+                    cursor: pointer;
+
+                    // el-avatar 背景颜色改为 none
+                    .el-avatar {
+                        --el-avatar-background-color: none !important;
+                        --el-avatar-bg-color: none !important;
+                    }
+
+                    // 主题文本
+                    .theme-text {
+                        font-size: $header-component-size;
+                    }
+                }
+
                 // 指南引导按钮
                 .guide-driver-container {
                     margin-right: 10px;
@@ -147,7 +172,7 @@
         .home-container {
             width: 100%;
             min-height: 100%;
-            background: linear-gradient(105deg, $main-color 50%, $hover-color 50%);
+            background: linear-gradient(105deg, $basic-color 50%, $hover-color 50%);
             display: flex;
 
             // 标题区域
@@ -163,14 +188,14 @@
 
                 // 文本中部
                 .title-middle {
-                    background: linear-gradient(105deg, $hover-color 58%, $main-color 42%);
+                    background: linear-gradient(105deg, $hover-color 58%, $basic-color 42%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }
 
                 // 文本右部
                 .title-right {
-                    color: $main-color;
+                    color: $basic-color;
                 }
             }
         }

@@ -1,6 +1,12 @@
 @import "./login";
 @import "./layout";
 
+// 项目全局变量
+:root {
+    --basic: #304156;
+    --hover: #FFD04B;
+}
+
 // 页面总样式
 html,
 body {
