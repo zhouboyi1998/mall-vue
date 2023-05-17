@@ -55,7 +55,7 @@ import {
     Setting
 } from '@element-plus/icons-vue'
 import { selectMenuTree } from '@/api/user/menu'
-import variable from '@/assets/style/variable.module.scss'
+import variable from '@/style/variable.module.scss'
 
 // 获取 SCSS 变量
 const basicColor = variable.basicColor

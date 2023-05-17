@@ -67,7 +67,7 @@ import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { selectMenuPage, updateMenu } from '@/api/user/menu'
 import { column } from './column'
-import variable from '@/assets/style/variable.module.scss'
+import variable from '@/style/variable.module.scss'
 import constant from '@/components/Constant'
 
 // 获取 SCSS 变量

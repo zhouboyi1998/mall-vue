@@ -11,7 +11,7 @@
 import { ref, onBeforeMount, onBeforeUnmount } from 'vue'
 import screenfull from 'screenfull'
 import { FullScreen, Crop } from '@element-plus/icons-vue'
-import variable from '@/assets/style/variable.module.scss'
+import variable from '@/style/variable.module.scss'
 
 // 获取 SCSS 变量
 const headerComponentSize = variable.headerComponentSize
