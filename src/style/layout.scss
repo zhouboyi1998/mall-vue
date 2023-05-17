@@ -227,4 +227,22 @@
             }
         }
     }
+
+    // 错误页
+    .error-container {
+        width: 100%;
+        min-height: 100%;
+        background: linear-gradient(105deg, $basic-color 50%, $hover-color 50%);
+        display: flex;
+
+        // 标题
+        .title {
+            font-size: 24vw;
+            font-weight: bold;
+            margin: auto;
+            background: linear-gradient(105deg, $hover-color 50%, $basic-color 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
 }
