@@ -129,5 +129,5 @@ const handleLogin = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/style/login";
+@import "src/style/login";
 </style>

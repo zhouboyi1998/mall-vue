@@ -10,7 +10,7 @@
 <script setup>
 import { useLayoutStore } from '@/store/layout'
 import { Fold, Expand } from '@element-plus/icons-vue'
-import variable from '@/assets/style/variable.module.scss'
+import variable from '@/style/variable.module.scss'
 
 // 获取 Pinia 仓库
 const layoutStore = useLayoutStore()

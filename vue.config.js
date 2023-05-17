@@ -22,7 +22,7 @@ module.exports = {
             // SASS 配置
             sass: {
                 // 全局引入样式文件
-                additionalData: `@import "@/assets/style/variable.scss";`
+                additionalData: `@import "@/style/variable.scss";`
             }
         }
     },
