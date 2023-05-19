@@ -7,6 +7,7 @@
 <a target="_blank" href="https://opensource.org/licenses/MIT"> 
 <img src="https://img.shields.io/badge/license-MIT-red"> 
 </a>
+<img src="https://img.shields.io/badge/TypeScript-5.0.4-blue">
 <img src="https://img.shields.io/badge/Vue-3.2.13-mediumseagreen">
 <img src="https://img.shields.io/badge/Vue Router-4.0.3-mediumseagreen">
 <img src="https://img.shields.io/badge/Pinia-2.0.21-yellow">

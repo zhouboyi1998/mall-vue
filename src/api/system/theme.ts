@@ -9,7 +9,7 @@ export const selectThemeList = () => {
 }
 
 // 分页查询主题
-export const selectThemePage = (params) => {
+export const selectThemePage = (params: any) => {
     return instance({
         url: '/mall-system/theme/page/' + params.current + '/' + params.size,
         method: 'post',
@@ -18,7 +18,7 @@ export const selectThemePage = (params) => {
 }
 
 // 更新单个主题
-export const updateTheme = (theme) => {
+export const updateTheme = (theme: any) => {
     return instance({
         url: '/mall-system/theme/update',
         method: 'put',

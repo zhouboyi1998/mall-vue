@@ -7,7 +7,7 @@ import '@/style/index.scss'
 import '@/router/guard'
 import 'element-plus/dist/index.css'
 import ElementPlus from 'element-plus'
-import * as ElIcons from '@element-plus/icons-vue'
+import * as Icons from '@element-plus/icons-vue'
 import filters from './utils/filters'
 
 // 新建 Vue App
@@ -20,8 +20,8 @@ const pinia = createPinia()
 pinia.use(piniaPersist)
 
 // 将所有 Element Plus 图标全局注册为 Vue 组件
-for (const name in ElIcons) {
-    app.component(name, ElIcons[name])
+for (const name in Icons) {
+    app.component(name, (Icons as any)[name])
 }
 
 // 添加过滤器

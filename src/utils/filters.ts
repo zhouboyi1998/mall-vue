@@ -1,5 +1,5 @@
 // 日期时间格式化过滤器
-const datetimeFormatFilter = (datetime) => {
+const datetimeFormatFilter = (datetime: string) => {
     if (isDatetimeNull(datetime)) {
         // 如果时间为空, 返回 --
         return '--'
@@ -10,7 +10,7 @@ const datetimeFormatFilter = (datetime) => {
 }
 
 // 判断时间字符串是否为空
-export const isDatetimeNull = (datetime) => {
+export const isDatetimeNull = (datetime: string) => {
     if (!datetime) {
         return true
     } else if (JSON.stringify(datetime) === '{}') {
@@ -21,7 +21,7 @@ export const isDatetimeNull = (datetime) => {
 }
 
 // 导出过滤器
-export default (app) => {
+export default (app: any) => {
     app.config.globalProperties.$filters = {
         datetimeFormatFilter
     }
