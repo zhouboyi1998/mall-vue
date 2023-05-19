@@ -1,10 +1,10 @@
-import axios from 'axios'
+import axios, { AxiosRequestHeaders } from 'axios'
 import { useTokenStore } from '@/store/token'
 import { usePathStore } from '@/store/path'
 import { useLayoutStore } from '@/store/layout'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
-import constant from '@/components/Constant'
+import constant from '@/components/Constant.vue'
 import { login } from '@/api/login'
 
 // 获取 Pinia 仓库
@@ -14,14 +14,14 @@ const layoutStore = useLayoutStore()
 
 // 新建 axios 实例
 const instance = axios.create({
-    baseURL: process.env.VUE_APP_REQUEST_BASE_URL,
+    baseURL: process.env.VUE_APP_BASE_URL,
     timeout: process.env.VUE_APP_REQUEST_TIMEOUT
 })
 
 // axios 请求拦截器
 instance.interceptors.request.use(request => {
     // 添加 Access Token 到请求头中
-    request.headers.Authorization = tokenStore.accessToken
+    (request.headers as AxiosRequestHeaders).Authorization = tokenStore.accessToken
     return request
 }, error => {
     return Promise.reject(new Error(error))

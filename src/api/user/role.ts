@@ -1,7 +1,7 @@
 import instance from '@/api/request'
 
 // 分页查询角色
-export const selectRolePage = (params) => {
+export const selectRolePage = (params: any) => {
     return instance({
         url: '/mall-user/role/page/' + params.current + '/' + params.size,
         method: 'post',
@@ -10,7 +10,7 @@ export const selectRolePage = (params) => {
 }
 
 // 更新单个角色
-export const updateRole = (role) => {
+export const updateRole = (role: any) => {
     return instance({
         url: '/mall-user/role/update',
         method: 'put',

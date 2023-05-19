@@ -1,7 +1,7 @@
 import instance from '@/api/request'
 
 // 分页查询菜单
-export const selectMenuPage = (params) => {
+export const selectMenuPage = (params: any) => {
     return instance({
         url: '/mall-user/menu/page/' + params.current + '/' + params.size,
         method: 'post',
@@ -10,7 +10,7 @@ export const selectMenuPage = (params) => {
 }
 
 // 更新单个菜单
-export const updateMenu = (menu) => {
+export const updateMenu = (menu: any) => {
     return instance({
         url: '/mall-user/menu/update',
         method: 'put',

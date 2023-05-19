@@ -1,7 +1,7 @@
 import instance from '@/api/request'
 
 // 分页查询管理员
-export const selectUserPage = (params) => {
+export const selectUserPage = (params: any) => {
     return instance({
         url: '/mall-user/user/page/' + params.current + '/' + params.size,
         method: 'post',
@@ -10,7 +10,7 @@ export const selectUserPage = (params) => {
 }
 
 // 更新单个管理员
-export const updateUser = (user) => {
+export const updateUser = (user: any) => {
     return instance({
         url: '/mall-user/user/update',
         method: 'put',

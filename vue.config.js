@@ -1,21 +1,8 @@
-const AutoImport = require('unplugin-auto-import/webpack')
-const Components = require('unplugin-vue-components/webpack')
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
-
 const host = process.env.VUE_APP_HOST
 const port = process.env.VUE_APP_PORT
-const target = process.env.VUE_APP_REQUEST_BASE_URL_TARGET
+const target = process.env.VUE_APP_TARGET
 
 module.exports = {
-    // Webpack 配置
-    configureWebpack: config => {
-        config.plugins.push(AutoImport({
-            resolvers: [ElementPlusResolver()]
-        }))
-        config.plugins.push(Components({
-            resolvers: [ElementPlusResolver()]
-        }))
-    },
     // CSS 配置
     css: {
         loaderOptions: {
