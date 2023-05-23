@@ -11,15 +11,15 @@
     </div>
 </template>
 
-<script setup>
-import Hamburger from './components/Hamburger'
-import Breadcrumb from './components/Breadcrumb'
-import Avatar from './components/Avatar'
-import Theme from './components/Theme'
-import Driver from './components/Driver'
-import ScreenFull from './components/ScreenFull'
+<script setup lang="ts">
+import Hamburger from './components/Hamburger.vue'
+import Breadcrumb from './components/Breadcrumb.vue'
+import Avatar from './components/Avatar.vue'
+import Theme from './components/Theme.vue'
+import Driver from './components/Driver.vue'
+import ScreenFull from './components/ScreenFull.vue'
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 
 </style>

@@ -1,14 +1,14 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import App from '@/App.vue'
+import router from '@/router'
+import '@/router/guard'
 import { createPinia } from 'pinia'
 import piniaPersist from 'pinia-plugin-persist'
+import filters from '@/filter'
 import '@/style/index.scss'
-import '@/router/guard'
 import 'element-plus/dist/index.css'
 import ElementPlus from 'element-plus'
 import * as Icons from '@element-plus/icons-vue'
-import filters from './utils/filters'
 
 // 新建 Vue App
 const app = createApp(App)

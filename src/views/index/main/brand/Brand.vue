@@ -61,14 +61,14 @@
     </el-scrollbar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { selectBrandPage, updateBrand } from '@/api/goods/brand'
 import { column } from './column'
 import variable from '@/style/variable.module.scss'
-import constant from '@/components/Constant'
+import { HttpStatus } from '@/constants'
 
 // 获取 SCSS 变量
 const primaryColor = variable.primaryColor
@@ -126,7 +126,7 @@ const handleSizeChange = (size) => {
 const changeStatus = async (row) => {
     let brand = { id: row.id, status: row.status }
     let result = await updateBrand(brand)
-    if (result.status === constant.HttpStatus.OK) {
+    if (result.status === HttpStatus.OK) {
         if (row.status === 1) {
             ElMessage.success({ message: '启用成功', center: true })
         } else if (row.status === 0) {
@@ -138,6 +138,6 @@ const changeStatus = async (row) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 
 </style>

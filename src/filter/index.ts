@@ -1,4 +1,6 @@
 // 日期时间格式化过滤器
+import { App } from '@vue/runtime-core'
+
 const datetimeFormatFilter = (datetime: string) => {
     if (isDatetimeNull(datetime)) {
         // 如果时间为空, 返回 --
@@ -21,7 +23,7 @@ export const isDatetimeNull = (datetime: string) => {
 }
 
 // 导出过滤器
-export default (app: any) => {
+export default (app: App) => {
     app.config.globalProperties.$filters = {
         datetimeFormatFilter
     }

@@ -4,8 +4,8 @@ import { usePathStore } from '@/store/path'
 import { useLayoutStore } from '@/store/layout'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
-import constant from '@/components/Constant.vue'
 import { login } from '@/api/login'
+import { HttpStatus } from '@/constants'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
@@ -14,8 +14,8 @@ const layoutStore = useLayoutStore()
 
 // 新建 axios 实例
 const instance = axios.create({
-    baseURL: process.env.VUE_APP_BASE_URL,
-    timeout: process.env.VUE_APP_REQUEST_TIMEOUT
+    baseURL: import.meta.env.VITE_APP_BASE_URL,
+    timeout: import.meta.env.VITE_APP_REQUEST_TIMEOUT
 })
 
 // axios 请求拦截器
@@ -32,7 +32,7 @@ instance.interceptors.response.use(response => {
     return response
 }, async error => {
     // Access Token 过期
-    if (error.response.status === constant.HttpStatus.UNAUTHORIZED) {
+    if (error.response.status === HttpStatus.UNAUTHORIZED) {
         // 请求参数
         const params = new URLSearchParams()
         // 刷新令牌模式

@@ -14,16 +14,15 @@
     </el-container>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
 import { useLayoutStore } from '@/store/layout'
-import Sidebar from './sidebar/Sidebar'
-import Header from './header/Header'
+import Sidebar from './sidebar/Sidebar.vue'
+import Header from './header/Header.vue'
 
 // 获取 Pinia 仓库
 const layoutStore = useLayoutStore()
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 
 </style>

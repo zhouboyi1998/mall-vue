@@ -37,7 +37,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, ref } from 'vue'
 import router from '@/router'
 import { useTokenStore } from '@/store/token'
@@ -128,6 +128,6 @@ const handleLogin = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 @import "src/style/login";
 </style>

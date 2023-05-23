@@ -15,7 +15,7 @@
     </el-dropdown>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import router from '@/router'
 import { useTokenStore } from '@/store/token'
 import { usePathStore } from '@/store/path'
@@ -44,7 +44,7 @@ const handleLogout = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 // 下拉菜单项
 :deep(.el-dropdown-menu__item) {
     // 设置不换行
