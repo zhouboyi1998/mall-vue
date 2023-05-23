@@ -6,7 +6,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted } from 'vue'
 import Driver from 'driver.js'
 import 'driver.js/dist/driver.min.css'
@@ -71,6 +71,6 @@ const handleClickGuideDriver = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 
 </style>

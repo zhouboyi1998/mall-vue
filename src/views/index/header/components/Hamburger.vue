@@ -7,7 +7,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useLayoutStore } from '@/store/layout'
 import { Fold, Expand } from '@element-plus/icons-vue'
 import variable from '@/style/variable.module.scss'
@@ -34,6 +34,6 @@ const handleClickHamburger = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 
 </style>

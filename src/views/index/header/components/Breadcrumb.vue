@@ -15,7 +15,7 @@
     </el-scrollbar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { usePathStore } from '@/store/path'
@@ -58,6 +58,6 @@ watch(Route, () => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 
 </style>

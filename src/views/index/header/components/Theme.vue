@@ -24,7 +24,7 @@
     </el-dropdown>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { selectThemeList } from '@/api/system/theme'
 
@@ -47,7 +47,7 @@ const handleChangeTheme = (theme) => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 // 下拉菜单项
 :deep(.el-dropdown-menu__item) {
     // 设置不换行

@@ -4,6 +4,10 @@
     </div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
 
-<style lang="scss" scoped></style>
+</script>
+
+<style scoped lang="scss">
+
+</style>

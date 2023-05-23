@@ -2,9 +2,11 @@
   "name": "mall-vue",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.0",
@@ -15,27 +17,28 @@
     "pinia": "^2.0.21",
     "pinia-plugin-persist": "^1.0.0",
     "screenfull": "^5.1.0",
-    "typescript": "^5.0.4",
     "vue": "^3.2.13",
     "vue-axios": "^3.4.1",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
+    "@types/node": "^20.2.3",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-plugin-typescript": "~5.0.0",
-    "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
+    "@vitejs/plugin-vue": "^4.1.0",
     "eslint": "^8.40.0",
-    "node-sass": "^7.0.1",
-    "sass-loader": "^13.0.0"
+    "sass": "^1.62.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.2",
+    "vue-tsc": "^1.4.2"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "repository": "https://github.com/zhouboyi1998/mall-vue",
+  "author": "https://github.com/zhouboyi1998",
+  "license": "MIT"
 }

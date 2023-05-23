@@ -7,7 +7,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onBeforeMount, onBeforeUnmount } from 'vue'
 import screenfull from 'screenfull'
 import { FullScreen, Crop } from '@element-plus/icons-vue'
@@ -40,6 +40,6 @@ const handleClickScreenFull = () => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 
 </style>
