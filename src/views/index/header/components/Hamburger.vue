@@ -1,6 +1,6 @@
 <template>
     <div id="hamburger" class="hamburger-container" @click="handleClickHamburger">
-        <el-icon class="header-icon" :size="headerComponentSize">
+        <el-icon class="header-icon" :size="headerIconSize">
             <component :is="Expand" v-if="layoutStore.sidebarCollapse"/>
             <component :is="Fold" v-else/>
         </el-icon>
@@ -16,7 +16,7 @@ import variable from '@/style/variable.module.scss'
 const layoutStore = useLayoutStore()
 
 // 获取 SCSS 变量
-const headerComponentSize = variable.headerComponentSize
+const headerIconSize = variable.headerIconSize
 
 // 点击汉堡按钮
 const handleClickHamburger = () => {
