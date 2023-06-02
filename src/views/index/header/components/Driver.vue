@@ -1,6 +1,6 @@
 <template>
     <div id="guide" class="guide-driver-container" @click.prevent.stop="handleClickGuideDriver">
-        <el-icon class="header-icon" :size="headerComponentSize">
+        <el-icon class="header-icon" :size="headerIconSize">
             <Compass/>
         </el-icon>
     </div>
@@ -14,7 +14,7 @@ import { Compass } from '@element-plus/icons-vue'
 import variable from '@/style/variable.module.scss'
 
 // 获取 SCSS 变量
-const headerComponentSize = variable.headerComponentSize
+const headerIconSize = variable.headerIconSize
 
 // 指南引导步骤
 const steps = [

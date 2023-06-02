@@ -1,6 +1,6 @@
 <template>
     <div id="screenfull" class="screen-full-container" @click="handleClickScreenFull">
-        <el-icon class="header-icon" :size="headerComponentSize">
+        <el-icon class="header-icon" :size="headerIconSize">
             <component :is="Crop" v-if="isScreenFull"/>
             <component :is="FullScreen" v-else/>
         </el-icon>
@@ -14,7 +14,7 @@ import { FullScreen, Crop } from '@element-plus/icons-vue'
 import variable from '@/style/variable.module.scss'
 
 // 获取 SCSS 变量
-const headerComponentSize = variable.headerComponentSize
+const headerIconSize = variable.headerIconSize
 
 // 当前是否为全屏
 const isScreenFull = ref()
