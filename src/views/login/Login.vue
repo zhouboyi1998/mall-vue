@@ -43,7 +43,7 @@ import router from '@/router'
 import { useTokenStore } from '@/store/token'
 import { login } from '@/api/login'
 import { User, Lock, Hide, View } from '@element-plus/icons-vue'
-import { ElMessage } from 'element-plus'
+import { ElForm, ElMessage } from 'element-plus'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
@@ -88,7 +88,8 @@ const rules = reactive({
     ]
 })
 
-const formRef = ref(null)
+// 登录表单
+const formRef = ref(ElForm)
 
 // 登录处理
 const handleLogin = () => {
@@ -99,8 +100,8 @@ const handleLogin = () => {
     params.append('username', form.username)
     params.append('password', form.password)
 
-    // 校验 form 表单
-    formRef.value.validate(async (valid) => {
+    // 校验登录表单
+    formRef.value.validate(async (valid: boolean) => {
         if (valid) {
             // 如果校验通过, 发起登录请求
             await login(params)
