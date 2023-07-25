@@ -44,11 +44,11 @@ instance.interceptors.response.use(response => {
                 // 将 token 保存到 Pinia Store 中
                 tokenStore.$patch({
                     // Access Token (需要添加前缀)
-                    accessToken: result.data.tokenPrefix + result.data.accessToken,
+                    accessToken: result.data.data.tokenPrefix + result.data.data.accessToken,
                     // Refresh Token
-                    refreshToken: result.data.refreshToken,
+                    refreshToken: result.data.data.refreshToken,
                     // 当前时间戳 + Access Token 过期时长 == Access Token 过期时间
-                    expiresIn: Date.now() + result.data.expiresIn
+                    expiresIn: Date.now() + result.data.data.expiresIn
                 })
             })
             .catch(error => {
