@@ -72,7 +72,7 @@ const menuTree = ref([])
 // 初始化菜单树
 const initMenuTree = async () => {
     let result = await selectMenuTree()
-    menuTree.value = result.data
+    menuTree.value = result.data.data
 }
 
 // 发送初始化请求

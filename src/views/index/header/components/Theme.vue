@@ -34,7 +34,7 @@ const themeList = ref([])
 // 初始化主题列表
 const initThemeList = async () => {
     let result = await selectThemeList()
-    themeList.value = result.data
+    themeList.value = result.data.data
 }
 
 // 发送初始化请求

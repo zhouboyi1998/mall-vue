@@ -96,9 +96,9 @@ const initTable = async () => {
     // 发送请求获取表格数据
     let result = await selectBrandPage(params.value)
     // 将返回的数据绑定到表格数据中
-    tableData.value = result.data.records
+    tableData.value = result.data.data.records
     // 绑定数据总数
-    total.value = result.data.total
+    total.value = result.data.data.total
 }
 
 // 发送初始化请求
