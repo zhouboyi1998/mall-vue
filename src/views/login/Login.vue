@@ -59,8 +59,9 @@ import router from '@/router'
 import { useTokenStore } from '@/store/token'
 import { login } from '@/api/login'
 import { createCaptchaOne } from '@/api/security/captcha'
-import { User, Lock, PictureRounded, Hide, View } from '@element-plus/icons-vue'
+import { rsaPublicKey } from '@/api/security/rsa'
 import { ElForm, ElMessage } from 'element-plus'
+import JSEncrypt from 'jsencrypt'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
@@ -129,6 +130,18 @@ const rules = reactive({
     ]
 })
 
+// 新建 JSEncrypt 对象
+const crypt = new JSEncrypt()
+
+// 获取 RSA 公钥
+const handleGetRSAPublicKey = async () => {
+    let result = await rsaPublicKey()
+    crypt.setPublicKey(result.data.data)
+}
+
+// 执行获取 RSA 公钥请求
+handleGetRSAPublicKey()
+
 // 登录表单
 const form = ref(ElForm)
 
@@ -136,11 +149,11 @@ const form = ref(ElForm)
 const handleLogin = () => {
     // 请求参数
     const params = new URLSearchParams()
-    // 登录授权模式
+    // 授权模式
     params.append('grant_type', 'captcha')
-    // 登录表单参数
     params.append('username', formParams.username)
-    params.append('password', formParams.password)
+    // 加密用户输入的密码, 防止泄露
+    params.append('password', crypt.encrypt(formParams.password) as string)
     params.append('key', formParams.key)
     params.append('code', formParams.code)
 
