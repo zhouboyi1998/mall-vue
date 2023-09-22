@@ -57,7 +57,7 @@
 
             // 显示密码 & 隐藏密码图标
             .show-password-icon-container {
-                color: $medium-light-gray-color;
+                color: $light-gray-color;
                 cursor: pointer;
 
                 &:hover {
@@ -83,7 +83,7 @@
         // 登录页面按钮
         .icon-container {
             padding: 6px 5px 6px 15px;
-            color: $medium-light-gray-color;
+            color: $light-gray-color;
             vertical-align: middle;
             display: inline-block;
         }
