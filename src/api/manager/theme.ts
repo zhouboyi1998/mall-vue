@@ -3,7 +3,7 @@ import instance from '@/api/request'
 // 查询主题列表
 export const selectThemeList = () => {
     return instance({
-        url: '/mall-system/theme/list',
+        url: '/mall-manager/theme/list',
         method: 'get'
     })
 }
@@ -11,7 +11,7 @@ export const selectThemeList = () => {
 // 分页查询主题
 export const selectThemePage = (params: any) => {
     return instance({
-        url: '/mall-system/theme/page/' + params.current + '/' + params.size,
+        url: '/mall-manager/theme/page/' + params.current + '/' + params.size,
         method: 'post',
         data: params.theme
     })
@@ -20,7 +20,7 @@ export const selectThemePage = (params: any) => {
 // 更新单个主题
 export const updateTheme = (theme: any) => {
     return instance({
-        url: '/mall-system/theme/update',
+        url: '/mall-manager/theme/update',
         method: 'put',
         data: theme
     })

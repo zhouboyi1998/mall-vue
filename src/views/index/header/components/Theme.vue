@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { selectThemeList } from '@/api/system/theme'
+import { selectThemeList } from '@/api/manager/theme'
 
 // 主题列表
 const themeList = ref([])

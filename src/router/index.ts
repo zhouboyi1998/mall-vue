@@ -53,12 +53,12 @@ const routes = [
                 component: () => import('@/views/index/main/menu/Menu.vue')
             },
             {
-                path: '/mall-system/area',
+                path: '/mall-foundation/area',
                 name: 'Area',
                 component: () => import('@/views/index/main/area/Area.vue')
             },
             {
-                path: '/mall-system/theme',
+                path: '/mall-manager/theme',
                 name: 'Theme',
                 component: () => import('@/views/index/main/theme/Theme.vue')
             }

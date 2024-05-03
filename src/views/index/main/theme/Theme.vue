@@ -75,7 +75,7 @@
 import { ref } from 'vue'
 import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import { selectThemePage, updateTheme } from '@/api/system/theme'
+import { selectThemePage, updateTheme } from '@/api/manager/theme'
 import { column } from './column'
 import variable from '@/style/variable.module.scss'
 import { HttpStatus } from '@/constants'
