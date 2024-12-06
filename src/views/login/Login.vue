@@ -59,7 +59,7 @@ import router from '@/router'
 import { useTokenStore } from '@/store/token'
 import { login } from '@/api/login'
 import { createCaptchaOne } from '@/api/security/captcha'
-import { rsaPublicKey } from '@/api/security/rsa'
+import { jwkPublicKey } from '@/api/security/jwk'
 import { ElForm, ElMessage } from 'element-plus'
 import JSEncrypt from 'jsencrypt'
 
@@ -133,14 +133,14 @@ const rules = reactive({
 // 新建 JSEncrypt 对象
 const crypt = new JSEncrypt()
 
-// 获取 RSA 公钥
-const handleGetRSAPublicKey = async () => {
-    let result = await rsaPublicKey()
+// 获取密码加密公钥
+const handleGetJWKPublicKey = async () => {
+    let result = await jwkPublicKey()
     crypt.setPublicKey(result.data.data)
 }
 
-// 执行获取 RSA 公钥请求
-handleGetRSAPublicKey()
+// 执行获取密码加密公钥请求
+handleGetJWKPublicKey()
 
 // 登录表单
 const form = ref(ElForm)
