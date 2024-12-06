@@ -19,9 +19,9 @@ export const updateMenu = (menu: any) => {
 }
 
 // 获取菜单树
-export const selectMenuTree = () => {
+export const selectMenuTreeList = () => {
     return instance({
-        url: '/mall-user/menu/tree',
+        url: '/mall-user/menu/tree-list',
         method: 'get'
     })
 }
