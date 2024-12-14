@@ -48,9 +48,9 @@ const routes = [
                 component: () => import('@/views/index/main/role/Role.vue')
             },
             {
-                path: '/mall-user/menu',
-                name: 'Menu',
-                component: () => import('@/views/index/main/menu/Menu.vue')
+                path: '/mall-user/resource',
+                name: 'Resource',
+                component: () => import('@/views/index/main/resource/Resource.vue')
             },
             {
                 path: '/mall-foundation/area',

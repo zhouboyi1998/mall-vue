@@ -2,25 +2,36 @@ export const column = [
     {
         prop: 'id',
         label: 'ID',
-        width: 80
-    },
-    {
-        prop: 'menuName',
-        label: '菜单名称',
-        width: 160
-    },
-    {
-        prop: 'menuTitle',
-        label: '标题'
-    },
-    {
-        prop: 'menuIcon',
-        label: '图标',
-        width: 100
+        width: 180
     },
     {
         prop: 'parentId',
-        label: '父菜单ID'
+        label: '父资源ID',
+        width: 180
+    },
+    {
+        prop: 'resourceType',
+        label: '资源类型',
+        width: 80
+    },
+    {
+        prop: 'resourceName',
+        label: '资源名称',
+        width: 160
+    },
+    {
+        prop: 'resourceTitle',
+        label: '资源标题'
+    },
+    {
+        prop: 'resourceIcon',
+        label: '资源图标',
+        width: 100
+    },
+    {
+        prop: 'resourceContent',
+        label: '资源内容',
+        width: 160
     },
     {
         prop: 'sort',

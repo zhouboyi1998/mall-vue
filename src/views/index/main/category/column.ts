@@ -2,16 +2,16 @@ export const column = [
     {
         prop: 'id',
         label: 'ID',
-        width: 80
-    },
-    {
-        prop: 'categoryName',
-        label: '分类'
+        width: 180
     },
     {
         prop: 'parentId',
         label: '父分类ID',
-        width: 80
+        width: 180
+    },
+    {
+        prop: 'categoryName',
+        label: '分类'
     },
     {
         prop: 'goodsCount',

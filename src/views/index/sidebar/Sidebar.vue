@@ -54,7 +54,7 @@ import {
     User, UserFilled, Flag,
     Setting
 } from '@element-plus/icons-vue'
-import { selectMenuTree } from '@/api/user/menu'
+import { selectMenuTreeList } from '@/api/user/resource'
 import variable from '@/style/variable.module.scss'
 
 // 获取 SCSS 变量
@@ -71,7 +71,7 @@ const menuTree = ref([])
 
 // 初始化菜单树
 const initMenuTree = async () => {
-    let result = await selectMenuTree()
+    let result = await selectMenuTreeList()
     menuTree.value = result.data.data
 }
 

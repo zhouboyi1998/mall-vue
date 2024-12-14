@@ -6,8 +6,8 @@
                     <!-- 搜索框 -->
                     <el-input
                         clearable
-                        v-model="params.menu.menuName"
-                        placeholder="请输入菜单名称"
+                        v-model="params.resource.resourceName"
+                        placeholder="请输入资源名称"
                         @change="initTable"
                         @input="initTable"
                     />
@@ -65,7 +65,7 @@
 import { ref } from 'vue'
 import { Search, Plus, Document, Edit, Delete } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
-import { selectMenuPage, updateMenu } from '@/api/user/menu'
+import { selectResourcePage, updateResource } from '@/api/user/resource'
 import { column } from './column'
 import variable from '@/style/variable.module.scss'
 import { HttpStatus } from '@/constants'
@@ -80,8 +80,8 @@ const dangerColor = variable.dangerColor
 const params = ref({
     current: 1,
     size: 10,
-    menu: {
-        menuName: ''
+    resource: {
+        resourceName: ''
     }
 })
 
@@ -94,7 +94,7 @@ const total = ref(0)
 // 初始化表格
 const initTable = async () => {
     // 发送请求获取表格数据
-    let result = await selectMenuPage(params.value)
+    let result = await selectResourcePage(params.value)
     // 将返回的数据绑定到表格数据中
     tableData.value = result.data.data.records
     // 绑定数据总数
@@ -124,8 +124,8 @@ const handleSizeChange = (size) => {
 
 // 修改状态
 const changeStatus = async (row) => {
-    let menu = { id: row.id, status: row.status }
-    let result = await updateMenu(menu)
+    let resource = { id: row.id, status: row.status }
+    let result = await updateResource(resource)
     if (result.status === HttpStatus.OK) {
         if (row.status === 1) {
             ElMessage.success({ message: '启用成功', center: true })
