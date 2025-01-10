@@ -6,7 +6,7 @@ const instance = axios.create({
     timeout: import.meta.env.VITE_APP_REQUEST_TIMEOUT
 })
 
-// 登录请求
+// 登录认证
 export const login = (params: any) => {
     // 添加 client_id / client_secret 到请求参数中
     params.append('client_id', import.meta.env.VITE_APP_CLIENT_ID)

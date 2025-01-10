@@ -20,6 +20,7 @@ import router from '@/router'
 import { useTokenStore } from '@/store/token'
 import { usePathStore } from '@/store/path'
 import { useLayoutStore } from '@/store/layout'
+import { logout } from "@/api/security/logout"
 import { ElMessage } from 'element-plus'
 
 // 获取 Pinia 仓库
@@ -28,7 +29,9 @@ const pathStore = usePathStore()
 const layoutStore = useLayoutStore()
 
 // 退出处理
-const handleLogout = () => {
+const handleLogout = async () => {
+    // 发送退出登录请求
+    await logout()
     // 重置 Pinia Store
     tokenStore.$reset()
     pathStore.$reset()
@@ -38,7 +41,7 @@ const handleLogout = () => {
     // 清空 Session Storage
     sessionStorage.clear()
     // 跳转到登录页
-    router.replace('/login')
+    await router.replace('/login')
     // 退出成功提示
     ElMessage.success({ message: '退出成功', center: true })
 }

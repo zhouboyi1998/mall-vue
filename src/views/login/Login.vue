@@ -57,11 +57,12 @@
 import { reactive, ref } from 'vue'
 import router from '@/router'
 import { useTokenStore } from '@/store/token'
-import { login } from '@/api/login'
+import { login } from '@/api/security/login'
 import { createCaptchaOne } from '@/api/security/captcha'
 import { jwkPublicKey } from '@/api/security/jwk'
 import { ElForm, ElMessage } from 'element-plus'
 import JSEncrypt from 'jsencrypt'
+import { StringPool } from '@/constants'
 
 // 获取 Pinia 仓库
 const tokenStore = useTokenStore()
@@ -166,7 +167,7 @@ const handleLogin = () => {
                     // 将 token 保存到 Pinia Store 中
                     tokenStore.$patch({
                         // Access Token (需要添加前缀)
-                        accessToken: result.data.data.tokenPrefix + result.data.data.accessToken,
+                        accessToken: result.data.data.tokenType + StringPool.SPACE + result.data.data.accessToken,
                         // Refresh Token
                         refreshToken: result.data.data.refreshToken,
                         // 当前时间戳 + Access Token 过期时长 == Access Token 过期时间
